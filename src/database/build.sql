@@ -8,7 +8,7 @@ CREATE TABLE members (
 	CONSTRAINT members_pk PRIMARY KEY (id)
 ) WITH (
   OIDS=FALSE
-;
+);
 
 
 
