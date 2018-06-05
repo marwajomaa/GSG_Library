@@ -1,0 +1,37 @@
+{
+  "name": "GSG_Libery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACG4/GSG_Libery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACG4/GSG_Libery/issues"
+  },
+  "homepage": "https://github.com/FACG4/GSG_Libery#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "env2": "^2.2.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.2.2",
+    "nodemon": "^1.17.5",
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "supertest": "^3.1.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.0"
+  }
+}
