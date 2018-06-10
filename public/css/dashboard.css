@@ -1,3 +1,4 @@
+
 .container {
   width: 900px;
   display: flex;
@@ -79,4 +80,33 @@ height: 80%;
 }
 .four {
   background: #FFA000
+}
+
+.table{
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin-top: 250px;
+  font-size: 18px
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #BDBDBD;
+}
+tr:first-child {
+  color:#0A1226;
+  font-size: 18
+}
+
+.table{
+  padding: 91px;
+ flex-direction: row-reverse;
+ display: flex;
 }

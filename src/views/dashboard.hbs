@@ -1,4 +1,6 @@
+
 <section>
+
   <div class="container">
 
     {{#each booksnumbers}}
@@ -39,3 +41,23 @@
 
   </div>
 </section>
+
+
+<div class="table">
+
+<table>
+  <tr>
+    <th>Member Name</th>
+    <th>Book name</th>
+    <th>left days</th>
+  </tr>
+  {{#each result}}
+  <tr>
+    <th>{{this.full_name}}</th>
+    <th>{{this.book_name}}</th>
+    <th>{{ leftdays this.end_date }}</th>
+  </tr>
+  {{/each}}
+
+</table>
+</div>
