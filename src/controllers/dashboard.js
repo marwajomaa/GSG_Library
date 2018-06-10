@@ -1,8 +1,13 @@
-exports.get = (req, res) => {
-	res.render('dashboard',{style:'dashboard'});
-};
+const tabelDashboard = require('./../database/queries/dashboard');
 
-exports.post = (req,res) => {
-  
+
+exports.get = (req, res) => {
+	tabelDashboard((tabelDashboardError, result) => {
+		if (tabelDashboardError) return res.status(500);
+		res.render('dashboard', {
+			style: 'dashboard',
+			result
+		});
+	});
 
 };
