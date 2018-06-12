@@ -22,15 +22,20 @@
   "homepage": "https://github.com/FACG4/GSG_Libery#readme",
   "dependencies": {
     "bcrypt": "^2.0.1",
-    "body-parser": "^1.18.3",
+    "body-parser": "*",
+    "connect-flash": "*",
     "cookie-parser": "^1.4.3",
     "env2": "^2.2.0",
-    "express": "^4.16.3",
+    "express": "*",
     "express-handlebars": "^3.0.0",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
     "fs": "0.0.1-security",
     "handlebars-helpers": "^0.10.0",
     "jsonwebtoken": "^8.2.2",
-    "nodemon": "^1.17.5",
+    "moment": "*",
+    "nodemon": "*",
     "pg": "^7.4.3"
   },
   "devDependencies": {
