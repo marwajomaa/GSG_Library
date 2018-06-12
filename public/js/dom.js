@@ -13,63 +13,40 @@ const bookCopyMsg = select('[name=bookCopy]');
 const reservedCopyMsg = select('[name=reservedCopy]');
 const availableCopyMsg = select('[name=availableCopy]');
 const notification = select('.notification');
-const button = select('[name=button]');
+// const button = select('[name=button]');
+
+let messages = (bookstatus, mobilestatus, fullname, emailV, bookCopyCount, reservedBookCount, availableBook, notify)=>{
+	bookStatus.textContent= bookstatus;
+	mobileStatus.textContent= mobilestatus;
+	fullName.value=fullname;
+	email.value=emailV;
+	bookCopyMsg.value=bookCopyCount;
+	reservedCopyMsg.value=reservedBookCount;
+	availableCopyMsg.value=availableBook;
+	notification.textContent=notify;
+};
 
 const errorHandling = (status, data) => {
-	if(status === 302) {
-		mobileStatus.textContent='mobile not exist';
-		bookStatus.textContent='available';
-		bookCopyMsg.value=data.bookCopy;
-		reservedCopyMsg.value=data.count;
-		availableCopyMsg.value=data.bookCopy-data.count;
-		button.setAttribute('disabled', '');
+	if(status === 400){
+		messages('book not exist', '', '', '', data.bookCopy, data.count, data.availableCopy, '');
 	}
-	else if (status === 500) {
-		mobileStatus.textContent='500 error in connection to server.. try again';
-	}
-	else if (status === 501) {
-		bookStatus.textContent='501 error in connection to server.. try again';
-	}
-	else if (status === 303) {
-		bookStatus.textContent='No book Found';
-		button.setAttribute('disabled', '');
-	}
-	else if (status === 305) {
-		bookCopyMsg.value=data.bookCopy;
-		reservedCopyMsg.value=data.count;
-		availableCopyMsg.value=0;
-		notification.textContent=`All the Copy of book (${book.value}) are reserved`;
-		button.setAttribute('disabled', '');
-		bookStatus.textContent='not valid';
-	}
+	if(status === 305){
+		const notify = `All the Copy of book (${book.value}) are reserved`;
+		messages('All Copy Reserved', '', '', '', data.bookCopy, data.count, data.availableCopy, notify);
 
-	else if(status === 400){
-		button.setAttribute('disabled', '');
-		notification.textContent='no book found & no mobile number';
 	}
-	else if(status === 403){
-		fullName.value=data.fullName;
-		email.value=data.email;
+	if(status === 310){
+		messages('available', 'Available User', data.fullName, data.email, data.bookCopy, data.count, data.availableCopy, '');
+
 	}
-	if (availableCopyMsg.value === 0) {
-		notification.textContent=`All the Copy of book (${book.value}) are reserved`;
-		bookStatus.textContent='Not valid';
-		button.setAttribute('disabled', '');
-	}
-	if (status === 200){
-		notification.textContent='';
-		mobileStatus.textContent='Success';
-		bookStatus.textContent='available';
-		fullName.value=data.fullName;
-		email.value=data.email;
-		button.removeAttribute('disabled', '');
-		console.log(data.count);
+	if(status === 402){
+		messages('available', 'User Not Found', '', '', data.bookCopy, data.count, data.availableCopy, '');
 	}
 };
 
 
-mobile.addEventListener('blur', (e)=>{
-	const mobileNumber = select('.mobile').value;
+mobile.addEventListener('blur', ()=>{
+	const mobileNumber = mobile.value;
 	const bookName = book.value;
 	fetch('/insertbook', 'POST', mobileNumber, bookName, (res) => {
 		const data = JSON.parse(res);
@@ -79,8 +56,8 @@ mobile.addEventListener('blur', (e)=>{
 	});
 });
 
-book.addEventListener('blur', (e)=>{
-	const mobileNumber = select('.mobile').value;
+book.addEventListener('blur', ()=>{
+	const mobileNumber = mobile.value;
 	const bookName = book.value;
 	fetch('/insertbook', 'POST', mobileNumber, bookName, (res) => {
 		const data = JSON.parse(res);
@@ -89,10 +66,10 @@ book.addEventListener('blur', (e)=>{
 	});
 });
 
-form.addEventListener('submit', function (event) {
+form.addEventListener('submit', (event) => {
 	event.preventDefault();
 	const bookName = book.value;
-	const mobileNumber = select('.mobile').value;
+	const mobileNumber = mobile.value;
 	fetch('/insertbook', 'POST', mobileNumber, bookName, (res) => {
 		const data = JSON.parse(res);
 		const status = data.status;
