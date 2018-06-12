@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  border: 0 ;
+  padding:0;
+  background:#CFD8DC
+
+}
+
+  .header {
+  height: 18px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   overflow: hidden;
+   color: white;
+  background-color:#0A1226;
+   padding: 20px 10px;
+}
+.header a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+
+}
+
+.logo {
+  position: flex;
+  width: 90px;
+  height: 50px;
+  float: left;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  display: flex;
+  float: right;
+  padding:0 20px;
+  margin: 25px
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.admin {
+  width: 100%;
+  height: 80px;
+}
+/* .adminImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+   margin:10px;
+  margin :10px 20px
+} */
+
+.adminName {
+  float: left;
+  line-height: 50px;
+  color: white;
+  margin-left: 60px;
+  font-size: 20px;
+}
+.line {
+  width: 100%;
+  height: .5px;
+  background: white;
+  border: 1px solid outset;
+}
+
+
+.sidebar {
+  width: 250px;
+  height: 620px;
+  background-color:#0A1226;
+  /* color: white; */
+  float: left;
+}
+
+  ul.sidebar-menu {
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    list-style-type: none;
+}
+
+.sidebar-menu li a i {
+	margin-right: 20px;
+  color: #fff;
+}
+.sidebar-menu li a  {
+	background-color:#0A1226;
+	padding: 20px 25px;
+	display: block;
+	text-decoration: none;
+	color: #fff;
+}
+
+.sidebar-menu li a:hover  {
+	background-color: #F44336;
+	padding: 20px 25px;
+	display: block;
+	text-decoration: none;
+	color: #fff;
+}
