@@ -35,6 +35,20 @@ const insertElement = (data)=>{
 		datalist.appendChild(option);
 	}
 };
+
+const eventListener = (element, action)=>{
+	element.addEventListener(action, ()=>{
+		const mobileNumber = mobile.value;
+		const bookName = book.value;
+		fetch('/insertbook', 'POST', mobileNumber, bookName, (res) => {
+			const data = JSON.parse(res);
+			const status = data.status;
+			errorHandling(status, data);
+
+		});
+	});
+};
+
 const errorHandling = (status, data) => {
 	if(status === 400){
 		button.setAttribute('disabled', '');
@@ -58,18 +72,6 @@ const errorHandling = (status, data) => {
 	}
 };
 
-const eventListener = (element, action)=>{
-	element.addEventListener(action, ()=>{
-		const mobileNumber = mobile.value;
-		const bookName = book.value;
-		fetch('/insertbook', 'POST', mobileNumber, bookName, (res) => {
-			const data = JSON.parse(res);
-			const status = data.status;
-			errorHandling(status, data);
-
-		});
-	});
-};
 
 
 eventListener(mobile, 'blur');

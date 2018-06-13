@@ -12,7 +12,7 @@ exports.post = (req, res)=>{
 	const {bookName} = req.body;
 
 
-	bookNameQuery(bookName, (error, bookResult)=>{
+	bookNameQuery.bookName(bookName, (error, bookResult)=>{
 		if (error || !bookResult.length) {
 			return  res.send({status:400,  availableCopy:0 , count:0, bookCopy:0});
 		}
@@ -30,13 +30,12 @@ exports.post = (req, res)=>{
 
 				selectMember(mobileNumber, (err, userData) => {
 					if (err || !userData.length) {
-						// const l = res.rows.length-1;
-						console.log(bookResult);
 						return res.send({status:402, books:bookResult, availableCopy:bookResult[0].num_copy-copyReservedCount[0].count , count:copyReservedCount[0].count, bookCopy:bookResult[0].num_copy});
 					}
 
 					if (userData.length)
 					{
+
 						if (bookResult[0].num_copy != copyReservedCount[0].count) {
 							return    res.send({status:310, books:bookResult, fullName: userData[0].full_name, email: userData[0].email, availableCopy:bookResult[0].num_copy-copyReservedCount[0].count , count:copyReservedCount[0].count, bookCopy:bookResult[0].num_copy});
 						}
