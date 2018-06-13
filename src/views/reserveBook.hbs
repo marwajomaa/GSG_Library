@@ -1,10 +1,12 @@
 <form class="reserveBook" method="POST">
   <h1>{{title}}</h1>
   <div class="field">
-    <label for="">Book Name</label>
-    <input type="text" name="bookName" placeholder="Enter Book Name">
-    <label class="bookStatus"></label>
-  </div>
+ <label for="">Book Name</label>
+  <input list="bookName" name="bookName" placeholder="Enter Book Name">
+    <datalist id="bookName">
+    </datalist>
+        <label class="bookStatus"></label>
+      </div>
   <div class="field">
     <label for="">Mobile Number</label>
     <input class="mobile" type="text" name="mobileNumber" placeholder="Enter Mobile Number">
@@ -41,5 +43,5 @@
   <div class="field">
     <label class="notification"></label>
   </div>
-  <button type="submit" name="button">Lend</button>
+  <button type="submit" name="button" disabled>Lend</button>
 </form>
