@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
 const controllers = require('./controllers')
 const helpers = require('./views/helpers/index');
+const Swal = require('sweetalert');
 
 
 //init app

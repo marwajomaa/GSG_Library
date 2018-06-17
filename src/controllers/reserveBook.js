@@ -1,6 +1,7 @@
 const selectMember = require('../database/queries/selectMember');
 const bookNameQuery = require('../database/queries/selectBook');
 const bookReservedNum = require('../database/queries/countLendingBooks');
+const reserv = require('./../database/queries/reservBook');
 
 exports.get = (req, res, next)=>{
 	res.render('reserveBook', { style: 'css/style-reserveBook.css' });
@@ -10,6 +11,7 @@ exports.post = (req, res)=>{
 
 	const {mobileNumber} = req.body;
 	const {bookName} = req.body;
+	console.log('dd',req.body);
 
 
 	bookNameQuery.bookName(bookName, (error, bookResult)=>{
@@ -50,5 +52,29 @@ exports.post = (req, res)=>{
 
 		}
 	});
+  
+
+	const {start}=req.body;
+	const {end}=req.body;
+
+
+  
+	
+
+	// if(bookName&&mobileNumber && start&&end){
+	
+	// 	reserv(bookName,mobileNumber, start, end, (err, data3) => {
+	// 		if (err) {
+	// 			console.log('soory', err);
+	// 		} else {
+      
+	// 			console.log('ok');
+      
+        
+      
+   
+	// 		}
+	// 	});
+	// }
 
 };

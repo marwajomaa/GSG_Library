@@ -15,6 +15,12 @@ const reservedCopyMsg = select('[name=reservedCopy]');
 const availableCopyMsg = select('[name=availableCopy]');
 const notification = select('.notification');
 const button = select('[name=button]');
+const start = select('[name=lendingDate]').valueAsDate = new Date();
+const end = select('[name=endDate]').valueAsDate = new Date();
+
+console.log(book.value);
+
+
 
 let messages = (bookstatus, mobilestatus, fullname, emailValue, bookCopyCount, reservedBookCount, availableBook, notify)=>{
 	bookStatus.textContent= bookstatus;
@@ -40,14 +46,25 @@ const eventListener = (element, action)=>{
 	element.addEventListener(action, ()=>{
 		const mobileNumber = mobile.value;
 		const bookName = book.value;
-		fetch('/insertbook', 'POST', mobileNumber, bookName, (res) => {
+		const start='start';
+		const end='end';
+		fetch('/insertbook', 'POST', mobileNumber, bookName,start,end, (res) => {
 			const data = JSON.parse(res);
 			const status = data.status;
+			console.log('ee',res);
+      
 			errorHandling(status, data);
 
 		});
 	});
 };
+
+eventListener(mobile, 'blur');
+
+eventListener(book, 'input');
+
+eventListener(form, 'submit');
+
 
 const errorHandling = (status, data) => {
 	if(status === 400){
@@ -71,11 +88,37 @@ const errorHandling = (status, data) => {
 		messages('', 'User Not Found', '', '', data.bookCopy, data.count, data.availableCopy, '');
 	}
 };
+if(button){
+	button.addEventListener('click', ()=>{
+		const mobileNumber = mobile.value;
+		const bookName = book.value;
+		const lendingDate=start.value;
+		const endDate=end.value;
+	
+  
+  
+
+		fetch('/insertbook', 'POST', mobileNumber, bookName,lendingDate,endDate, (res) => {
+			const data = JSON.parse(res);
+			const status = data.status;
+			errorHandling(status, data);
+			mobile.value='';
+			book.value='';
+			fullName.value='';
+			bookCopyMsg.value='';
+			reservedCopyMsg.vlaue='';
+			availableCopyMsg.value='';
+			start.value='';
+			end.value='';
+			email.value='';
+			swal('Hello world!');
+
+
+		});
+	});
+
+}
 
 
 
-eventListener(mobile, 'blur');
 
-eventListener(book, 'input');
-
-eventListener(form, 'submit');

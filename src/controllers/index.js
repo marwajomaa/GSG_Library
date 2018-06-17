@@ -16,10 +16,10 @@ router.get('/GSG_Library', GSG_Library.get);
 router.get('/login', login.get);
 router.post('/login', login.post);
 
-router.get('/insertbook', reserveBook.get);
-router.post('/insertbook', reserveBook.post);
+router.get('/reservbook', reserveBook.get);
+router.post('/reservbook', reserveBook.post);
 
-router.get('/', (req, res)=>{
-});
+// router.get('/', (req, res)=>{
+// });
 
 module.exports = router;
