@@ -82,6 +82,7 @@ insert into members(full_name, mobile, email) values('Ahmad Shatat', 0597165984,
 insert into members(full_name, mobile, email) values('Yousef Shatat', 0595165984, 'yousef.m.sh@gmail.com');
 insert into members(full_name, mobile, email) values('Mohammed Shatat', 0596165984, 'mohammed.m.sh@gmail.com');
 insert into members(full_name, mobile, email) values('Janna Shatat', 0598165984, 'janna.m.sh@gmail.com');
+insert into members(full_name, mobile, email) values('eman', 0592043608, 'eman_h_2009@live.com');
 insert into lending(book_id, member_id, start_date, end_date) values(1, 1, '2-2-2018', '9-2-2018');
 insert into lending(book_id, member_id, start_date, end_date) values(1, 2, '2-2-2018', '9-2-2018');
 insert into lending(book_id, member_id, start_date, end_date) values(1, 3, '2-2-2018', '9-2-2018');

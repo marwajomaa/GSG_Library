@@ -1,9 +1,6 @@
 const express = require('express');
-
 const router = express.Router();
-
 const dashboard = require('./dashboard');
-
 const checkuser = require('./checkUser');
 const login = require('./login');
 const lendBook = require('./lendBook');
@@ -19,7 +16,7 @@ router.post('/login', login.post);
 router.get('/lendbook', lendBook.get);
 router.post('/lendbook', lendBook.post);
 
-router.get('/', (req, res)=>{
-});
+// router.get('/', (req, res)=>{
+// });
 
 module.exports = router;

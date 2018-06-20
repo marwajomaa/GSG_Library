@@ -14,6 +14,10 @@ const reservedCopyMsg = select('[name=reservedCopy]');
 const availableCopyMsg = select('[name=availableCopy]');
 const notification = select('.notification');
 const button = select('[name=button]');
+const start = select('[name=lendingDate]');
+const end = select('[name=endDate]');
+
+
 
 let messages = (bookstatus, mobilestatus, fullname, emailValue, bookCopyCount, reservedBookCount, availableBook, notify)=>{
 	bookStatus.textContent= bookstatus;
@@ -39,13 +43,15 @@ const eventListener = (element, action)=>{
 	element.addEventListener(action, ()=>{
 		const mobileNumber = mobile.value;
 		const bookName = book.value;
-		fetch('/lendbook', 'POST', mobileNumber, bookName, (res) => {
+		fetch('/lendbook', 'POST', mobileNumber, bookName,'','', (res) => {
 			const data = JSON.parse(res);
 			const status = data.status;
 			errorHandling(status, data);
 		});
 	});
 };
+
+
 
 const errorHandling = (status, data) => {
 	if(status === 400){
@@ -71,20 +77,49 @@ const errorHandling = (status, data) => {
 };
 
 
-
 eventListener(mobile, 'blur');
 
 eventListener(book, 'input');
 
-
+// eventListener(form, 'submit');
+// if(button){
 button.addEventListener('click', ()=>{
 	const mobileNumber = mobile.value;
 	const bookName = book.value;
-	fetch('/lendbook', 'POST', mobileNumber, bookName, (res) => {
+	const lendingDate=start.value;
+	const endDate=end.value;
+
+	fetch('/lendbook', 'POST', mobileNumber, bookName,lendingDate,endDate, (res) => {
 		const data = JSON.parse(res);
 		const status = data.status;
 		errorHandling(status, data);
+		mobile.value='';
+		book.value='';
+		fullName.value='';
+		bookCopyMsg.value='';
+		reservedCopyMsg.vlaue='';
+		availableCopyMsg.value='';
+		start.value='';
+		end.value='';
+		email.value='';
+		swal('Hello world!');
+
+
 	});
-	book.value='';
-	mobile.value='';
 });
+
+// }
+
+
+//
+// button.addEventListener('click', ()=>{
+// 	const mobileNumber = mobile.value;
+// 	const bookName = book.value;
+// 	fetch('/lendbook', 'POST', mobileNumber, bookName, (res) => {
+// 		const data = JSON.parse(res);
+// 		const status = data.status;
+// 		errorHandling(status, data);
+// 	});
+// 	book.value='';
+// 	mobile.value='';
+// });
