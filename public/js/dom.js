@@ -6,7 +6,6 @@ const mobile = select('.mobile');
 const fullName = select('[name=fullName]');
 const email = select('[name=email]');
 const book = select('[name=bookName]');
-const form = select('.reserveBook');
 const mobileStatus = select('.mobileStatus');
 const bookStatus = select('.bookStatus');
 const datalist = select('#bookName');
@@ -40,11 +39,10 @@ const eventListener = (element, action)=>{
 	element.addEventListener(action, ()=>{
 		const mobileNumber = mobile.value;
 		const bookName = book.value;
-		fetch('/insertbook', 'POST', mobileNumber, bookName, (res) => {
+		fetch('/lendbook', 'POST', mobileNumber, bookName, (res) => {
 			const data = JSON.parse(res);
 			const status = data.status;
 			errorHandling(status, data);
-
 		});
 	});
 };
@@ -78,4 +76,15 @@ eventListener(mobile, 'blur');
 
 eventListener(book, 'input');
 
-eventListener(form, 'submit');
+
+button.addEventListener('click', ()=>{
+	const mobileNumber = mobile.value;
+	const bookName = book.value;
+	fetch('/lendbook', 'POST', mobileNumber, bookName, (res) => {
+		const data = JSON.parse(res);
+		const status = data.status;
+		errorHandling(status, data);
+	});
+	book.value='';
+	mobile.value='';
+});

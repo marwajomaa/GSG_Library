@@ -2,15 +2,14 @@ const selectMember = require('../database/queries/selectMember');
 const bookNameQuery = require('../database/queries/selectBook');
 const bookReservedNum = require('../database/queries/countLendingBooks');
 
-exports.get = (req, res, next)=>{
-	res.render('reserveBook', { style: 'css/style-reserveBook.css' });
+exports.get = (req, res)=>{
+	res.render('lendBook', { style: 'css/style-reserveBook.css' });
 };
 
 exports.post = (req, res)=>{
 
 	const {mobileNumber} = req.body;
 	const {bookName} = req.body;
-
 
 	bookNameQuery.bookName(bookName, (error, bookResult)=>{
 		if (error || !bookResult.length) {
@@ -45,8 +44,6 @@ exports.post = (req, res)=>{
 				});
 
 			});
-
-
 
 		}
 	});

@@ -1,15 +1,15 @@
-<form class="reserveBook" method="POST">
+<div class="reserveBook">
   <h1>{{title}}</h1>
   <div class="field">
  <label for="">Book Name</label>
-  <input list="bookName" name="bookName" placeholder="Enter Book Name">
+  <input list="bookName" name="bookName" placeholder="Enter Book Name" required>
     <datalist id="bookName">
     </datalist>
         <label class="bookStatus"></label>
       </div>
   <div class="field">
     <label for="">Mobile Number</label>
-    <input class="mobile" type="text" name="mobileNumber" placeholder="Enter Mobile Number">
+    <input class="mobile" type="text" name="mobileNumber" placeholder="Enter Mobile Number" required>
     <label class="mobileStatus"></label>
   </div>
   <div class="field">
@@ -44,4 +44,4 @@
     <label class="notification"></label>
   </div>
   <button type="submit" name="button" disabled>Lend</button>
-</form>
+</div>
