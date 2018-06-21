@@ -3,11 +3,11 @@
   width: 900px;
   display: flex;
   float: right;
-  height: 150px;
+  height: 200px;
   word-wrap: wrap;
   margin-top: 80px;
   margin-right: 80px;
-   /* margin: 10px ; */
+  background: black;
 
   justify-content: center;
 }
@@ -27,35 +27,6 @@ height: 80%;
 }
 
 
-@media only screen and (max-width: 1024px) {
-  .figimg {
-        width:80px;
-        height: 80px;
-    }
-  .dashfig {
-    height: 150px;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .figimg {
-        width:0px;
-        height: 50px;
-    }
-  .dashfig {
-    width: 15%;
-    height: 100px;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-  .figcaption {
-    width: 50%;
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
-  }
-
-}
 
 .figcaption {
   width: 100%;
@@ -80,6 +51,35 @@ height: 80%;
 }
 .four {
   background: #FFA000
+}
+
+@media only screen and (max-width: 1300px) {
+  .container {
+        width:800px;
+        height: 200px;
+        background: blue
+    }
+  .dashfig{
+    width: 16%;
+}
+@media only screen and (max-width: 1200px) {
+  .container {
+        width:700px;
+        height: 200px;
+        background: black
+    }
+  .dashfig{
+    width: 15%;
+}
+
+@media only screen and (max-width: 1150px) {
+  .container {
+        width:600px;
+        height: 200px;
+        background: blue
+    }
+  .dashfig{
+    width: 12%;
 }
 
 .table{
