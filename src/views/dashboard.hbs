@@ -1,30 +1,63 @@
+
 <section>
-  <div class="dashfig">
-  <figure>
-  <img src="img_pulpit.jpg" alt="The Pulpit Rock" width="304" height="228">
-  <figcaption>Fig1. - A view of the pulpit rock in Norway.</figcaption>
-</figure>
-</div>
 
-<div class="dashfig">
-<figure>
-<img src="img_pulpit.jpg" alt="The Pulpit Rock" width="304" height="228">
-<figcaption>Fig1. - A view of the pulpit rock in Norway.</figcaption>
-</figure>
-</div>
+  <div class="container">
 
-<div class="dashfig">
-<figure>
-<img src="img_pulpit.jpg" alt="The Pulpit Rock" width="304" height="228">
-<figcaption>Fig1. - A view of the pulpit rock in Norway.</figcaption>
-</figure>
-</div>
+    {{#each booksnumbers}}
+      <div class="dashfig ">
+        <div class="icondiv">
+          <div><i class="fas fa-book fa-fw" style="font-size:60px;color:#F44336;margin:25px 65px"></i></div>
+        </div>
+        <div class='figcaption one'><span class='text'>{{this.count}}</span><br>Total books </div>
+      </div>
+    {{/each}}
 
-<div class="dashfig">  
-<figure>
-<img src="img_pulpit.jpg" alt="The Pulpit Rock" width="304" height="228">
-<figcaption>Fig1. - A view of the pulpit rock in Norway.</figcaption>
-</figure>
-</div>
+    {{#each lendbooks}}
+      <div class="dashfig ">
+        <div class="icondiv">
+          <div><i class="fas fa-book-open" style="font-size:60px;color:#2196F3;margin:30px 65px"></i></div>
+        </div>
+        <div class='figcaption two'><span class='text'>{{this.count}}<br>lent books</span></div>
+      </div>
+    {{/each}}
 
+    {{#each members}}
+      <div class="dashfig ">
+        <div class="icondiv">
+          <div><i class="fas fa-users" style="font-size:60px;color:#4CAF50;margin:30px 65px"></i></div>
+        </div>
+        <div class='figcaption three'><span class='text'>{{this.count}}<br>GSG members</span></div>
+      </div>
+    {{/each}}
+
+    {{#each lendingmembers}}
+      <div class="dashfig">
+        <div class="icondiv">
+          <div><i class="fas fa-user-friends" style="font-size:60px;color:#FFA000;margin:30px 65px"></i></div>
+        </div>
+        <div class='figcaption four'><span class='text'>{{this.count}}<br>lending</span></div>
+      </div>
+    {{/each}}
+
+  </div>
 </section>
+
+
+<div class="table">
+
+<table>
+  <tr>
+    <th>Member Name</th>
+    <th>Book name</th>
+    <th>left days</th>
+  </tr>
+  {{#each result}}
+  <tr>
+    <th>{{this.full_name}}</th>
+    <th>{{this.book_name}}</th>
+    <th>{{ leftdays this.end_date }}</th>
+  </tr>
+  {{/each}}
+
+</table>
+</div>
