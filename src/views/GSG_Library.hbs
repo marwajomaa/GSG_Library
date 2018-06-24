@@ -1,37 +1,89 @@
+
+
+
+
 <div class="divTable paleBlueRows">
-<div class="divTableHeading">
-<div class="divTableRow">
-<div class="divTableHead">No.</div>
-<div class="divTableHead">Book Name</div>
-<div class="divTableHead">Auther</div>
-<div class="divTableHead">lend</div>
-<div class="divTableHead">Book Type</div>
-<div class="divTableHead">Action</div>
-</div>
-</div>
-<div class="divTableBody">
-  {{#each booksData}}
-<div class="divTableRow">
-<div class="divTableCell">{{this.id}}</div>
-<div class="divTableCell">{{this.book_name}}</div>
-<div class="divTableCell">{{this.author}}</div>
-<div class="divTableCell">
-  {{#if book_id}}
-  <i class="far fa-check-circle"></i>
-  {{/if}}
-</div>
-<div class="divTableCell">{{this.name}}</div>
-<div class="divTableCell">
-  <div class="action">
-  <div class="edit">
-  <a href="/edit"><i class="fas fa-pencil-alt"></i></a>
+  <div class="divTableHeading">
+    <div class="divTableRow">
+      <div class="divTableHead">No.</div>
+      <div class="divTableHead">Book Name</div>
+      <div class="divTableHead">Author</div>
+      <div class="divTableHead">lend</div>
+      <div class="divTableHead">publish year</div>
+      <div class="divTableHead">Book Type</div>
+      <div class="divTableHead">Action</div>
+      <div class="divTableHead">number of copy</div>
+    </div>
   </div>
-  <div class="delete">
-  <a href="/delete"><i class="fas fa-trash-alt"></i></i></a>
+
+  <div class="divTableBody">
+    {{#each booksData}}
+      <div class="divTableRow">
+        <div class="divTableCell" id="id-{{@index}}">{{this.id}}</div>
+        <div class="divTableCell" id="bname-{{@index}}">{{this.book_name}}</div>
+        <div class="divTableCell" id="author-{{@index}}">{{this.author}}</div>
+
+        <div class="divTableCell">
+          {{#if book_id}}
+            <i class="far fa-check-circle"></i>
+          {{/if}}
+        </div>
+        <div class="divTableCell" id="publish_year-{{@index}}">{{this.publish_year}}</div>
+
+        <div class="divTableCell" id="type-{{@index}}">{{this.cat_name}}</div>
+        <div class="divTableCell">
+          <div class="action">
+            <div class="edit" id="edit-{{@index}}">
+
+
+              <a href="#" class="myBtn" id= {{this.id}}><i class="fas fa-pencil-alt"></i></a>
+            </div>
+            <div id="myModal" class="modal">
+
+              <!-- Edit -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <div class="container">
+
+                  <form>
+                    <label for="bname">Book name: </label>
+                    <br>
+                    <input type="text" id="bname" class="bname" name="bookname" value="{{this.book_name}}">
+                    <br>
+
+                    <label for="author">author: </label>
+                    <br>
+                    <input type="text" id="bname" class="author" name="author" value="{{this.author}}">
+                    <br>
+                    <label for="date">publish year: </label>
+                    <br>
+                    <input type="text" id="publish_year" class="publish_year" name="publish_date" value="{{this.publish_year}}">
+                    <br>
+                    <select id="category" name="category" class="category">
+                      {{#each this.category}}
+                        <option value={{this.id}}>{{this.name}}</option>
+                      {{/each}}
+                    </select>
+                    <br>
+
+                    <label for="subject">description: </label>
+                    <br>
+                    <textarea class="description" name="subject" value="{{this.description}}" style="height:100px"></textarea>
+                    <br>
+                    <button type="submit" name="button" value="submit" class="update" id= {{@index}}>update</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="delete">
+              <a href="/delete"><i class="fas fa-trash-alt"></i></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
   </div>
 </div>
- </div>
-</div>
-{{/each}}
-</div>
-</div>
+
+  <script src="/js/update.js"></script>

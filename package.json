@@ -37,7 +37,8 @@
     "moment": "*",
     "nodemon": "*",
     "pg": "^7.4.3",
-    "sweetalert": "^2.1.0"
+    "sweetalert": "^2.1.0",
+    "nodemailer": "^4.6.5"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
