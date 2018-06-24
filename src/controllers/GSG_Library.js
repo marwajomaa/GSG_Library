@@ -1,4 +1,4 @@
-const getBooksData = require('./../database/quieres/GSG_Library');
+const getBooksData = require('./../database/queries/GSG_Library');
 exports.get = (req, res)=>{
 	getBooksData((err, booksData)=>{
 		if(err) {
