@@ -5,6 +5,8 @@ exports.get = (req, res)=>{
 		if(err) console.log('error',err);
 		else{
 			res.render('outBooks',{result:result});
+			console.log(result);
+      
 		}
 	});
 
