@@ -28,4 +28,19 @@ const bookNameMatch = (bookName, cb) => {
 		}
 	});
 };
-module.exports = {bookName, bookNameMatch};
+
+const lendingBook = (cb) => {
+	const sql = {
+		text: 'select * from lending'
+	};
+	connection.query(sql, (err, res) => {
+		if (err) {
+			cb(err);
+		} else {
+			cb(null, res.rows);
+
+		}
+	});
+};
+
+module.exports = {bookName, bookNameMatch, lendingBook};

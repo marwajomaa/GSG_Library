@@ -57,7 +57,7 @@ exports.post = (req, res)=>{
 
 		reserv(bookName,mobileNumber, start, end, (err, data3) => {
 			if (err) {
-				console.log('soory', err);
+				console.log('sorry', err);
 			} else {
 				console.log('ok');
 
