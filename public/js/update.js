@@ -31,7 +31,7 @@ updateButton.forEach((btn,i) => {
 			category: category[i].value
 
 		});
-		
+
 		fetch('/GSG_Library', {
 			credentials: 'include',
 			headers: {

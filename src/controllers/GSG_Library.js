@@ -37,7 +37,7 @@ exports.post = (req, res) => {
 	updateBooks(id, bname,author,publish_year,category,description,(err,result) => {
 		if(err) return res.status(500).send('server error');
 		res.status(200).send({msg:'success recieve'});
-		
+
 
 
 	});
