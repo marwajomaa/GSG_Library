@@ -7,13 +7,9 @@ const expressValidator = require('express-validator');
 const controllers = require('./controllers');
 const helpers = require('./views/helpers/index');
 const Swal = require('sweetalert');
-
-
-//init app
-
 const app = express();
-
-// view setup
+const path = require('path');
+const cookieParser = require('cookie-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
@@ -32,5 +28,8 @@ app.engine(
 
 	})
 );
+
+
+
 
 module.exports = app;
