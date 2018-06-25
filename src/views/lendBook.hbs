@@ -1,0 +1,49 @@
+
+<div class="reserveBook">
+  <h1>{{title}}</h1>
+  <div class="field">
+ <label for="">Book Name</label>
+  <input list="bookName" name="bookName" placeholder="Enter Book Name" required>
+    <datalist id="bookName">
+    </datalist>
+        <label class="bookStatus"></label>
+      </div>
+  <div class="field">
+    <label for="">Mobile Number</label>
+    <input class="mobile" type="text" name="mobileNumber" placeholder="Enter Mobile Number" required>
+    <label class="mobileStatus"></label>
+  </div>
+  <div class="field">
+    <label for="">Full Name</label>
+    <input type="text" name="fullName" value="" disabled>
+  </div>
+  <div class="field">
+    <label for="">Email</label>
+    <input type="text" name="email" value="" disabled>
+  </div>
+  <div class="field">
+    <label for=""># of book copy available</label>
+    <input type="number" name="bookCopy" value="" disabled>
+  </div>
+  <div class="field">
+    <label for=""># of copy reserved</label>
+    <input type="number" name="reservedCopy" value="" disabled>
+  </div>
+  <div class="field">
+    <label for=""># of copy available</label>
+    <input type="number" name="availableCopy" value="" disabled>
+  </div>
+  <div class="field">
+    <label for="">Lending Date</label>
+    <input type="date" name="lendingDate" value="">
+  </div>
+  <div class="field">
+    <label for="">End Date</label>
+    <input type="date" name="endDate" value="">
+  </div>
+  <div class="field">
+    <label class="notification"></label>
+  </div>
+  <button type="submit" name="button" disabled>Lend</button>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
