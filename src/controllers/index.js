@@ -18,5 +18,6 @@ router.get('/lendbook', lendBook.get);
 router.post('/lendbook', lendBook.post);
 
 router.get('/outbooks',outBooks.get);
+router.post('/outbooks',outBooks.post);
 
 module.exports = router;

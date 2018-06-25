@@ -1,16 +1,13 @@
 {{#each result}}
-<div>hiiiiiiiiiiiiiiiiii{{this.full_name}}</div> 
+<div>{{this.full_name}}</div> 
 <div>{{this.book_name}}</div>
 
 <div>{{this.start_date}}</div>
 
 <div>{{this.end_date}}</div>
 
+
+<button value={{this.id}} class="buttonBook">back</button>
 {{/each}} 
 
-{{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/af.js">,</script>
-<script>
- 
-   console.log("d",moment())
-</script> --}}
 
