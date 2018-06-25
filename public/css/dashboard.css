@@ -110,3 +110,9 @@ tr:first-child {
  flex-direction: row-reverse;
  display: flex;
 }
+.send-email{
+  color: black;
+  background-color: green;
+  text-align: center;
+  display: none;
+}
