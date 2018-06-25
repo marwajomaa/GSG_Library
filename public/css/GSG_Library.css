@@ -1,6 +1,7 @@
 div.paleBlueRows {
   font-family: "Times New Roman", Times, serif;
   border: 1px solid #FFFFFF;
+
   width:50%;
   height: 300px;
   text-align: center;
@@ -8,20 +9,34 @@ div.paleBlueRows {
   margin-top: 100px ;
   margin-left:200px;
 }
+
 .divTable.paleBlueRows .divTableCell, .divTable.paleBlueRows .divTableHead {
   border: 1px solid #FFFFFF;
   padding: 3px 2px;
 }
+
+
+.divTable.paleBlueRows .divTableBody .divTableCell {
+  font-size: 13px;
+}
+
+.divTable.paleBlueRows .divTableRow:nth-child(even) {
+  background: #D0E4F5;
+}
+
+
 .divTable.paleBlueRows .divTableBody .divTableCell {
   font-size: 13px;
 }
 .divTable.paleBlueRows .divTableRow:nth-child(even) {
   background: #D0E4F5;
 }
+
 .divTable.paleBlueRows .divTableHeading {
   background: #0B6FA4;
   border-bottom: 5px solid #FFFFFF;
 }
+
 .divTable.paleBlueRows .divTableHeading .divTableHead {
   font-size: 17px;
   font-weight: bold;
@@ -29,6 +44,7 @@ div.paleBlueRows {
   text-align: center;
   border-left: 2px solid #FFFFFF;
 }
+
 .divTable.paleBlueRows .divTableHeading .divTableHead:first-child {
   border-left: none;
 }
@@ -40,6 +56,93 @@ div.paleBlueRows {
   background: #D0E4F5;
   border-top: 3px solid #444444;
 }
+
+
+.paleBlueRows .tableFootStyle {
+  font-size: 14px;
+}
+
+/* DivTable.com */
+
+.divTable {
+  display: table;
+}
+
+.divTableRow {
+  display: table-row;
+}
+
+.divTableHeading {
+  display: table-header-group;
+}
+
+.divTableCell, .divTableHead {
+  display: table-cell;
+}
+
+.divTableHeading {
+  display: table-header-group;
+}
+
+.divTableFoot {
+  display: table-footer-group;
+}
+
+.divTableBody {
+  display: table-row-group;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: rgba(218, 136, 15, 0.98);
+  padding: 52px;
+  width: 20%;
+  margin-left: 330px;
+  margin-top: 10px;
+ margin: 5% auto 15% auto;
+ border: 1px solid #888;
+
+}
+.modal input{
+  width: 173px;
+  text-align: center;
+}
+.modal label{
+  text-align: left;
+}
+.modal select{
+  text-align: center;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .paleBlueRows .tableFootStyle {
   font-size: 14px;
 }
