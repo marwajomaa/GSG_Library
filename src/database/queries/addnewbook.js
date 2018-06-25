@@ -1,10 +1,10 @@
 const db = require('./../db_connection');
 
 const addnewbook = (data,cb) => {
-	console.log(data,'helllllllllllllllp');
+	
 	const { category ,book_name,publish_date, author,description } = data;
 	const picUrl = data.picUrl.split('public/')[1];
-	console.log(picUrl,'pppppppppppppppppppp');
+	
 
 
 	const insertCategorySQL ={
