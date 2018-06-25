@@ -1,10 +1,7 @@
 const db = require('./../db_connection');
 
 const getBooksData = (cb) => {
-<<<<<<< HEAD:src/database/queries/GSG_Library.js
-=======
 
->>>>>>> 29fd031d539fa5fbe770ae6bfc512fe4c995c18d:src/database/quieres/GSG_Library.js
 	const sql = 'SELECT category.name as cat_name, category.id as cat_id, books.book_name,lending.book_id,books.id,books.author, books.publish_year from books left outer join lending on books.id=lending.book_id join category on category.id=books.category_id ORDER BY id';
 
 	db.query(sql, (err, booksData) => {
