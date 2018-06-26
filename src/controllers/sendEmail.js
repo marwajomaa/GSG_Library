@@ -1,29 +1,20 @@
 const outBook = require('./../database/queries/outbook');
 const nodemailer = require('nodemailer');
 require('env2')('./config.env');
-const sendEmail=()=>{
-
+const sendEmail=(cb)=>{
 	outBook((err,result)=>{
 		if(err) console.log('error',err);
 		else{
-
 			for (var x in result) {
-				const start = result[x].start_date;
-
-				const end = result[x].end_date;
-				let oneDay = 24*60*60*1000;
-
-				let diffDays = Math.round((end.getTime() - start.getTime())/(oneDay));
-
-
-				if(diffDays === 2){
+				const diffDays = result[x].remain.days;
+				if(diffDays && diffDays <= 3){
 					const transporter = nodemailer.createTransport({
 						host: 'smtp.gmail.com',
 						port: 587,
 						secure: false,
 						auth: {
-							user:'almanassah@gmail.com',
-							pass: '*20051469'
+							user:'beinlive.co@gmail.com',
+							pass: '*20//051469'
 						},
 
 					});
@@ -35,12 +26,16 @@ const sendEmail=()=>{
 						html: '<b>Hell world?</b>',
 					};
 
-
-
-
 					transporter.sendMail(mailOptions, (err, info) => {
-						if (err) console.log('err',err);
-						else console.log('send email',info);
+						if (err) {
+							// console.log('errrrrrror', err);
+							cb(err);
+						}
+						else{
+							// console.log(info);
+							cb(null, info);
+						}
+
 					});
 
 				}

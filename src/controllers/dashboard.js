@@ -1,7 +1,10 @@
-
 const {
-	getbooksnumbers, getlentbooks, getmembers, getlendingmembers,tabelDashboard
-} = require('../database/queries/dashboard');
+	getbooksnumbers,
+	getlentbooks,
+	getmembers,
+	getlendingmembers,
+	tabelDashboard
+} = require('./../database/queries/dashboard');
 
 exports.get = (req, res) => {
 	getbooksnumbers((err, booksnumbers) => {
@@ -24,7 +27,12 @@ exports.get = (req, res) => {
 						if (tabelDashboardError) return res.status(500);
 
 						res.render('dashboard', {
-							style: 'dashboard', booksnumbers, lendbooks, members, lendingmembers,result
+							style: 'dashboard',
+							booksnumbers,
+							lendbooks,
+							members,
+							lendingmembers,
+							result
 						});
 					});
 				});
