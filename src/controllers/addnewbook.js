@@ -14,6 +14,7 @@ exports.post = (req, res , next ) => {
 	console.log('imagePathimagePath',imagePath);
 	const imageText = req.body.fileData.replace(/^data:image\/\w+;base64,/, '');
 	const buffer = new Buffer(imageText, 'base64');
+	console.log(imageText);
 
 	fs.writeFile(imagePath , buffer , (err , done)=>{
 		if(err) return next(err);

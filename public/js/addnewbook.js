@@ -24,6 +24,7 @@ function addNewBook(e){
 	}
 
 }
+
 function sendTheBD (e, file){
 	const {fileUrl,book_name,publish_date,author,category }= e.target;
 	const data = {

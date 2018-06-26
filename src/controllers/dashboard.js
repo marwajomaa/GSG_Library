@@ -1,25 +1,21 @@
 
 const {
 	getbooksnumbers, getlentbooks, getmembers, getlendingmembers,tabelDashboard
-} = require('./../database/quieres/dashboard');
+} = require('./../database/queries/dashboard');
 
 exports.get = (req, res) => {
 	getbooksnumbers((err, booksnumbers) => {
-		if (err) {
-			res.send('error in database');
-		}
+		if (err) return res.send('error in database');
+
 		getlentbooks((err, lendbooks) => {
-			if (err) {
-				res.send('error in database');
-			}
+			if (err) return res.send('error in database');
+
 			getmembers((err, members) => {
-				if (err) {
-					res.send('error in database');
-				}
+				if (err) return res.send('error in database');
+
 				getlendingmembers((err, lendingmembers) => {
-					if (err) {
-						res.send('error in database');
-					}
+					if (err) return res.send('error in database');
+
 					tabelDashboard((tabelDashboardError, result) => {
 						if (tabelDashboardError) return res.status(500);
 
@@ -31,9 +27,6 @@ exports.get = (req, res) => {
 			});
 		});
 	});
-
-
-
 
 
 
