@@ -9,7 +9,7 @@ sendEmail.forEach((i) => {
 		i.addEventListener('click', () => {
 			console.log(idbook);
 			fetch('/dashboard','post',idbook,(res)=>{
-        
+
 
 			});
 

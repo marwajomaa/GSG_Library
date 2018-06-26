@@ -72,7 +72,7 @@ ALTER TABLE "lending" ADD CONSTRAINT "lending_fk1" FOREIGN KEY ("member_id") REF
 ALTER TABLE "books" ADD CONSTRAINT "books_fk0" FOREIGN KEY ("category_id") REFERENCES "category"("id");
 INSERT INTO members (full_name, mobile, email) VALUES
 ('marwajomaa','0599999999','ma@gmail.com'),
-('haneenshahwan', '0599999991', 'haneen@gmail.com'),
+('haneenshahwan', '0599999991', 'haneen9.3@hotmail.com'),
 ('emankhaled', '0591234567', 'emankhaled@gmail.com'),
 ('ahmedshatat', '0591234561', 'ahmedshatat@gmail.com'),
 ('abdallsamad', '0591234564', 'abdallsamad@gmail.com'),

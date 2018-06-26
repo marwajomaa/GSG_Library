@@ -1,6 +1,7 @@
 const db = require('./../db_connection');
 
 const getBooksData = (cb) => {
+
 	const sql = 'SELECT category.name as cat_name, category.id as cat_id, books.book_name,lending.book_id,books.id,books.author, books.publish_year from books left outer join lending on books.id=lending.book_id join category on category.id=books.category_id ORDER BY id';
 
 	db.query(sql, (err, booksData) => {
@@ -32,7 +33,6 @@ const updateBooks = (id, bname,author,publish_year,category_id,description,cb) =
 
 	} );
 };
-
 
 
 module.exports = {getBooksData,updateBooks,selectCategories};

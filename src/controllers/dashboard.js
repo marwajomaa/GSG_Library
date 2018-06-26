@@ -46,39 +46,34 @@ exports.get = (req, res) => {
 	});
 };
 exports.post =(req,res)=>{
-	// console.log('done',req.body.data);
-
 	const {data}=req.body;
 	sendMail(data,(err,result) => {
-		if(err) return res.status(500);
+		if(err)
+		 return res.status(500);
 		else{
-			// const email= result[0].email;
-			console.log(result[0].email);
-
-			// console.log(result);
-			// Generate test SMTP service account from ethereal.email
-			// Only needed if you don't have a real mail account for testing
-			// create reusable transporter object using the default SMTP transport
 			let transporter = nodemailer.createTransport({
-				service: 'gmail',
+				host: 'smtp.gmail.com',
+				port: 587,
+				secure: false,
 				auth: {
-					user:'', // generated ethereal user
-					pass:''
+					user:process.env.email,
+					pass:process.env.pass
 				}
 			});
 			let mailOptions = {
-				from: 'process.env.EMAIL', // sender address
-				to: result[0].email, // list of receivers
-				subject: 'Hello ✔', // Subject line
-				text: 'Hello world?', // plain text body
-				html: '<b>Hello world?</b>' // html body
+				from:'GSG library',
+				to: result[0].email,
+				subject: 'GSG library',
+				text: 'Hello,Im Sarah from GSG,just reminder you the time is up and you have return the book :D ',
+				html: '<b> Hello from GSG, your period for reading a book done, please return it to Sarah,hope you enjoyed </b>'
 			};
 
-				// send mail with defined transport object
-			transporter.sendMail(mailOptions, (error, info) => {
-				if (error) {
-					return console.log(error);
-				}
+
+			transporter.sendMail(mailOptions, (err, info) => {
+
+				if (err) console.log('err',err);
+				else console.log('send email',info);
+
 			});
 
 		}
