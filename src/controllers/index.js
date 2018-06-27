@@ -8,6 +8,8 @@ const GSG_Library = require('./GSG_Library');
 const outBooks= require('./outBooks');
 
 router.get('/dashboard', dashboard.get );
+router.post('/dashboard', dashboard.post );
+
 
 router.get('/GSG_Library', GSG_Library.get);
 router.post('/GSG_Library', GSG_Library.post);

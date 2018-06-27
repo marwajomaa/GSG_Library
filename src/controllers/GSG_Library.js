@@ -3,7 +3,7 @@ const {
 	getBooksData,
 	updateBooks,
 	selectCategories
-} = require('./../database/quieres/GSG_Library');
+} = require('./../database/queries/GSG_Library');
 exports.get = (req, res) => {
 	getBooksData((err, booksData) => {
 		if (err) {
@@ -34,7 +34,6 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-	console.log(req.body);
 	const {id, bname,author,publish_year,category,description}= req.body;
 	updateBooks(id, bname,author,publish_year,category,description,(err,result) => {
 		if(err) return res.status(500).send('server error');

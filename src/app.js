@@ -8,8 +8,8 @@ const controllers = require('./controllers');
 const helpers = require('./views/helpers/index');
 const Swal = require('sweetalert');
 const app = express();
-const path = require('path');
-const cookieParser = require('cookie-parser');
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
