@@ -1,7 +1,7 @@
 
 const{getBooksData,updateBooks,searchBooks,selectCategories}= require('./../database/queries/GSG_Library');
 
-exports.get = (req, res) => {
+const get  = (req, res) => {
 	getBooksData((err, booksData) => {
 		if (err) {
 			return res.send('error in getting data');
@@ -31,7 +31,7 @@ exports.get = (req, res) => {
 	});
 };
 
-exports.search = (req, res) => {
+const search = (req, res) => {
 
 	const {search} = req.body ;
 	searchBooks(search,(err, searchResults)=>{
@@ -42,7 +42,7 @@ exports.search = (req, res) => {
 	});
 };
 
-exports.update = (req, res) => {
+const update= (req, res) => {
 	const {id, bname,author,publish_year,category,description}= req.body;
 	updateBooks(id, bname,author,publish_year,category,description,(err,result) => {
 		// console.log(result,'hjjjjjjjjjjjjjjjjjjjjjjjjjj');
@@ -52,4 +52,10 @@ exports.update = (req, res) => {
 
 
 	});
+};
+
+module.exports={
+	get,
+	search,
+	update
 };

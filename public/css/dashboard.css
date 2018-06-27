@@ -140,6 +140,7 @@ tr:first-child {
  flex-direction: row-reverse;
  display: flex;
 }
+
 .send-email{
     background-color: #4CAF50;
     border: none;

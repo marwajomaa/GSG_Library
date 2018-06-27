@@ -35,7 +35,7 @@ const getlendingmembers = (cb) => {
 
 const tabelDashboard = (cb) => {
 	const sql = {
-		text: 'SELECT members.full_name,books.book_name,lending.start_date,lending.end_date, book_id from lending INNER JOIN books ON books.id=lending.book_id join members on members.id=lending.member_id ',
+		text: 'SELECT members.full_name,books.book_name,lending.start_date,lending.end_date from lending INNER JOIN books ON books.id=lending.book_id join members on members.id=lending.member_id ',
 	};
 	db.query(sql, (dbConnectionError, resultForTabel) => {
 		if (dbConnectionError) return cb(dbConnectionError);
@@ -43,19 +43,6 @@ const tabelDashboard = (cb) => {
 
 	});
 };
-
-const sendMail = (id,cb) => {
-	const sql = {
-		text: 'select lending.book_id,lending.member_id,members.email from members inner join lending on lending.member_id=members.id where lending.book_id=$1;',
-		values:[id]
-	};
-	db.query(sql, (dbConnectionError, result) => {
-		if (dbConnectionError) return cb(dbConnectionError);
-		cb(null, result.rows);
-
-	});
-};
-
 module.exports = {
-	getbooksnumbers, getlentbooks, getmembers, getlendingmembers, tabelDashboard, sendMail
+	getbooksnumbers, getlentbooks, getmembers, getlendingmembers, tabelDashboard
 };

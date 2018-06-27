@@ -1,3 +1,4 @@
+
 const fetch = (url, method,data, callback)=>{
 	const xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
@@ -5,10 +6,12 @@ const fetch = (url, method,data, callback)=>{
 			var response = xhr.responseText;
 			callback(response);
 		}
+
 	};
 
-	var data= JSON.stringify({data});
-	xhr.open(method, url);
+	data= JSON.stringify({data});
+	console.log('method',method.method,url);
+	xhr.open(method.method, url);
 	xhr.setRequestHeader('content-type', 'application/json');
 	xhr.send(data);
 };
