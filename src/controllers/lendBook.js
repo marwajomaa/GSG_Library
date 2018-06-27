@@ -4,13 +4,14 @@ const bookReservedNum = require('../database/queries/countLendingBooks');
 const reserv = require('../database/queries/lendBook');
 
 exports.get = (req, res)=>{
-	res.render('lendBook', { style: 'css/style-reserveBook.css' });
+	res.render('lendBook', { style: 'lendBook', jsFile:'domLendBook' });
 };
 
 exports.post = (req, res)=>{
-
-	const {mobileNumber} = req.body;
-	const {bookName} = req.body;
+	const {mobileNumber} = req.body.data;
+	const {bookName} = req.body.data;
+	const {lendingDate}=req.body.data;
+	const {endDate}=req.body.data;
 
 	bookNameQuery.bookName(bookName, (error, bookResult)=>{
 		if (error || !bookResult.length) {
@@ -37,7 +38,7 @@ exports.post = (req, res)=>{
 					{
 
 						if (bookResult[0].num_copy != copyReservedCount[0].count) {
-							return    res.send({status:310, books:bookResult, fullName: userData[0].full_name, email: userData[0].email, availableCopy:bookResult[0].num_copy-copyReservedCount[0].count , count:copyReservedCount[0].count, bookCopy:bookResult[0].num_copy});
+					   res.send({status:310, books:bookResult, fullName: userData[0].full_name, email: userData[0].email, availableCopy:bookResult[0].num_copy-copyReservedCount[0].count , count:copyReservedCount[0].count, bookCopy:bookResult[0].num_copy});
 						}
 
 					}
@@ -50,18 +51,14 @@ exports.post = (req, res)=>{
 	});
 
 
-	const {start}=req.body;
-	const {end}=req.body;
 
-	if(bookName && mobileNumber && start && end){
+	if(bookName && mobileNumber && lendingDate && endDate){
 
-		reserv(bookName,mobileNumber, start, end, (err, data3) => {
+		reserv(bookName,mobileNumber, lendingDate, endDate, (err, data) => {
 			if (err) {
-				console.log('soory', err);
-			} else {
-				console.log('ok');
-
+				return	res.send('Error in DataBase .. Please try Again');
 			}
+
 		});
 	}
 

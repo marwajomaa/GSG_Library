@@ -1,3 +1,5 @@
+
+const swal = require('sweetalert');
 const select = (element) => {
 	return document.querySelector(element);
 };
@@ -13,13 +15,10 @@ const bookCopyMsg = select('[name=bookCopy]');
 const reservedCopyMsg = select('[name=reservedCopy]');
 const availableCopyMsg = select('[name=availableCopy]');
 const notification = select('.notification');
-const button = select('[name=butto]');
+const button = select('[name=button]');
 const start = select('[name=lendingDate]');
 const end = select('[name=endDate]');
 
-// moment().format();
-
-// start.textContent=moment().subtract(10, 'days').calendar();
 let messages = (bookstatus, mobilestatus, fullname, emailValue, bookCopyCount, reservedBookCount, availableBook, notify)=>{
 	bookStatus.textContent= bookstatus;
 	mobileStatus.textContent= mobilestatus;
@@ -44,11 +43,10 @@ const eventListener = (element, action)=>{
 	element.addEventListener(action, ()=>{
 		const mobileNumber = mobile.value;
 		const bookName = book.value;
-		const info = {mobileNumber,bookName};
-
-    
-		fetch('/lendbook', 'POST', info, (res) => {
+		const data ={mobileNumber,bookName};
+		fetch('/lendbook', 'POST', data, (res) => {
 			const data = JSON.parse(res);
+			console.log('rrrrrrrrrrr',data);
 			const status = data.status;
 			errorHandling(status, data);
 		});
@@ -85,31 +83,39 @@ eventListener(mobile, 'blur');
 
 eventListener(book, 'input');
 
-// eventListener(form, 'submit');
-// if(button){
 button.addEventListener('click', ()=>{
 	const mobileNumber = mobile.value;
 	const bookName = book.value;
 	const lendingDate=start.value;
 	const endDate=end.value;
-	const information = {mobileNumber, bookName,lendingDate,endDate};
-	fetch('/lendbook', 'POST',information, (res) => {
+
+	const data = {
+		mobileNumber,
+		bookName,
+		lendingDate,
+		endDate
+	};
+
+	fetch('/lendbook', 'POST', data, (res) => {
+		console.log('res', res);
 		const data = JSON.parse(res);
 		const status = data.status;
-		errorHandling(status, data);
-		mobile.value='';
-		book.value='';
-		fullName.value='';
-		bookCopyMsg.value='';
-		reservedCopyMsg.vlaue='';
-		availableCopyMsg.value='';
-		start.value='';
-		end.value='';
-		email.value='';
-		swal('Hello world!');
 
 
+		if (status===310){
+			mobile.value='';
+			book.value='';
+			fullName.value='';
+			bookCopyMsg.value='';
+			reservedCopyMsg.value='';
+			availableCopyMsg.value='';
+			start.value='';
+			end.value='';
+			email.value='';
+			swal('The Book Lent Successfuly');
+
+		} else {
+			swal('Try Again .. error occured');
+		}
 	});
 });
-
-
