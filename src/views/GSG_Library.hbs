@@ -1,9 +1,12 @@
 
+
 <div id="searchDiv">
   <form action="" autocomplete="on">
   <input id="search" name="search" type="text" placeholder="search.."><input id="search_submit" value="Rechercher" type="submit">
   </form>
 </div>
+
+
 
 
 
@@ -18,29 +21,72 @@
 <div class="divTableHead">Action</div>
 </div>
 </div>
+
 <div class="divTableBody">
   {{#each booksData}}
+
 <div class="divTableRow">
-<div class="divTableCell">{{this.id}}</div>
-<div class="divTableCell">{{this.book_name}}</div>
-<div class="divTableCell">{{this.author}}</div>
-<div class="divTableCell">{{this.name}}</div>
+  <div class="divTableCell" id="id-{{@index}}">{{this.id}}</div>
+    <div class="divTableCell" id="bname-{{@index}}">{{this.book_name}}</div>
+    <div class="divTableCell" id="author-{{@index}}">{{this.author}}</div>
+    <div class="divTableCell" id="type-{{@index}}">{{this.cat_name}}</div>
+
 <div class="divTableCell">
   {{#if book_id}}
   <i class="far fa-check-circle" style="font-size:20px;color:green;margin:5px"></i>
   {{/if}}
 </div>
+
 <div class="divTableCell">
   <div class="action">
-    <div id='action' class="edit">
-      <a href="/edit"><i class="fas fa-pencil-alt" id='favicon' style="font-size:20px;color:blue;margin:5px"></i></a>
-    </div>
+    <div class="edit" id="edit-{{@index}}">
+            <a href="#" class="myBtn" id= {{this.id}}><i class="fas fa-pencil-alt"></i></a>
+      </div>
+      <div id="myModal" class="modal">
+
+            <!-- Edit -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+
+              <!-- <div class="container"> -->
+
+                <form>
+                  <label for="bname">Book name: </label>
+                  <br>
+                  <input type="text" id="bname" class="bname" name="bookname" value="{{this.book_name}}">
+                  <br>
+
+                  <label for="author">author: </label>
+                  <br>
+                  <input type="text" id="bname" class="author" name="author" value="{{this.author}}">
+                  <br>
+                  <label for="date">publish year: </label>
+                  <br>
+                  <input type="text" id="publish_year" class="publish_year" name="publish_date" value="{{this.publish_year}}">
+                  <br>
+                  <select id="category" name="category" class="category">
+                    {{#each this.category}}
+                    <option value={{this.id}}>{{this.name}}</option>
+                    {{/each}}
+                  </select>
+                  <br>
+
+                  <label for="subject">description: </label>
+                  <br>
+                  <textarea class="description" name="subject" value="{{this.description}}" style="height:100px"></textarea>
+                  <br>
+                  <button type="submit" name="button" value="submit" class="update" id= {{@index}}>update</button>
+                </form>
+
+            </div>
+          </div>
+
 
   <div class="divDelete">
 <button type="button" name="button" class='deleteBtn'><i class="fas fa-trash-alt" style="font-size:20px;color:red;margin:5px"></i></button>
 </div>
-  <div id="myModal" class="modal">
-    <div class="modal-content">
+  <div id="myModale" class="modale">
+    <div class="modale-content">
 
       <span class="deletClose">&times;</span>
      <h5>Are you sure you want to delete this book??</h5>
@@ -63,8 +109,8 @@
 
 </div>
 <!-- <button class="trigger" ></button> -->
-    <div class="modals">
-        <div class="modals-content">
+    <div class="modall">
+        <div class="modall-content">
           <span class="closes-button">&times;</span>
             <h2>Are you sure you want to delete this book??</h2>
 
@@ -83,3 +129,4 @@
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="/js/GSG.js" charset="utf-8"></script>
+  <script src="/js/update.js"></script>

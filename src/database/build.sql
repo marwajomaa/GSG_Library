@@ -30,7 +30,7 @@ CREATE TABLE books (
 
 CREATE TABLE category (
 	id serial PRIMARY KEY,
-	name varchar(150) NOT NULL 
+	name varchar(150) NOT NULL
 );
 
 

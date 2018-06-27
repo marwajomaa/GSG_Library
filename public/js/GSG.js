@@ -1,48 +1,48 @@
-const modal = document.getElementsByClassName('modal');
+const modale = document.getElementsByClassName('modale');
 const deleteBtns = document.querySelectorAll('.deleteBtn');
 const deleteSpans = document.getElementsByClassName('deletClose');
 const cancel = document.getElementsByClassName('cancel');
 const search = document.getElementById('search');
-const modals = document.querySelector('.modals');
+const modall = document.querySelector('.modall');
 // const trigger = document.querySelector('.trigger');
 const closeButton = document.querySelector('.closes-button');
 const deletebookbtn = document.querySelectorAll('.deletebookbtn');
 var bookId = 0;
 Array.from(deleteBtns).forEach((btn,i) =>{
 	btn.onclick = () => {
-		modal[i].style.display = 'block';
+		modale[i].style.display = 'block';
 	};
 });
 
 Array.from(deleteSpans).forEach((span,i) =>{
 	span.onclick = function() {
-		modal[i].style.display = 'none';
+		modale[i].style.display = 'none';
 	};
 
 });
 
 Array.from(cancel).forEach((span,i) =>{
 	span.onclick = function() {
-		modal[i].style.display = 'none';
+		modale[i].style.display = 'none';
 	};
 
 });
 
 
 window.onclick = function(event) {
-	if (event.target == modal) {
-		modal.style.display = 'none';
+	if (event.target == modale) {
+		modale.style.display = 'none';
 	}
 };
 
 
 function toggleModal(e) {
-	modals.classList.toggle('show-modals');
+	modall.classList.toggle('show-modall');
 	bookId = e.path[6].childNodes[0].textContent;
 }
 
 function windowOnClick(event) {
-	if (event.target === modals) {
+	if (event.target === modall) {
 		toggleModal();
 	}
 }

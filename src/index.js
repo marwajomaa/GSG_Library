@@ -1,5 +1,10 @@
-const app = require('./app');
 
-app.listen(app.get('port'), () => {
-  console.log('App running on port', app.get('port'));
+const app = require('./app');
+const userTracker= require('./controllers/sendEmail');
+
+
+const port = 3000;
+app.listen(port, ()=>{
+	console.log('server connected at port #', port);
+	setInterval(function(){userTracker();},24*60*60*1000);
 });

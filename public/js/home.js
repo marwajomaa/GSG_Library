@@ -25,8 +25,8 @@ window.onclick = function(event) {
 submit.addEventListener('submit', addToWaitingList);
 function addToWaitingList(){
 	console.log('kkkkkkkkk');
+	const data = JSON.stingify({
 		memberName : memberName.value.trim(),
-		const data = JSON.stingify({
 		bookName : bookName.value.trim(),
 		date : date.value.trim(),
 

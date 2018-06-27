@@ -14,6 +14,6 @@ exports.post = (req, res)=>{
 	addToWaitingList(memberName, bookName,date,(err, added)=>{
 		if(err) return res.send({status : false , message : 'error in adding data'});
 
-		res.render('home',{style:'home' ,layout:'second',added});
+		res.redirect('/');
 	});
 };

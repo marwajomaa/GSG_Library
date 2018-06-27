@@ -1,0 +1,13 @@
+.login{
+  width:50%;
+  background-color: teal;
+}
+
+.input{
+  width:60%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.label{
+  width: 60%;
+}
