@@ -42,12 +42,12 @@ exports.search = (req, res) => {
 	});
 };
 
-exports.post = (req, res) => {
-	console.log(req.body);
+exports.update = (req, res) => {
 	const {id, bname,author,publish_year,category,description}= req.body;
 	updateBooks(id, bname,author,publish_year,category,description,(err,result) => {
-		if(err) return res.status(500).send('server error');
-		res.status(200).send({msg:'success recieve'});
+		// console.log(result,'hjjjjjjjjjjjjjjjjjjjjjjjjjj');
+		if(err) return res.status(500).send({status:false, msg:'failed to update'});
+		res.status(200).send({status:true,msg:'success recieve'});
 
 
 

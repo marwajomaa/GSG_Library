@@ -37,17 +37,19 @@ const selectCategories = (cb) => {
 };
 
 const updateBooks = (id, bname,author,publish_year,category_id,description,cb) => {
-
+	console.log(id,'hhhhhhhhhhhhhhh');
 	const sql = {
-		text:'update books set book_name = $2, author = $3,publish_year=$4 ,category_id=$5 ,description=$6 where id=$1 RETURNING book_name',
+		text:'update books set book_name = $2, author = $3,publish_year=$4 ,category_id=$5 ,description=$6 where id=$1 RETURNING *',
 		values: [id, bname,author,publish_year,category_id,description]
 	};
 	db.query(sql,(err,result) =>{
-
+		console.log(err,'eerrrr');
+		console.log(result,'dddddd');
 		if (err) return cb(err);
-		cb(null,result);
+		cb(null,result.rows);
+		console.log(result.rows);
 
-	} );
+	});
 };
 
 

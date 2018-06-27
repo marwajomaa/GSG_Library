@@ -63,7 +63,7 @@ INSERT INTO members (full_name, mobile, email) VALUES
 ('emankhaled', '0591234567', 'emankhaled@gmail.com'),
 ('ahmedshatat', '0591234561', 'ahmedshatat@gmail.com'),
 ('abdallsamad', '0591234564', 'abdallsamad@gmail.com'),
-('mohammedalhella', '0591234565', 'mohammed@gmail.com'),
+('mohammedalhella', '0591234565', 'haneen3.9@hotmail.com'),
 ('ramyalshurafa', '0591234566', 'ramyshurafa@gmail.com'),
 ('ahmedshatat', '0591234533', 'ahmedshatat1@gmail.com'),
 ('farah', '0591234568', 'farah@gmail.com'),

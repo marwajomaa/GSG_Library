@@ -12,6 +12,9 @@ const waitinglist = require('./waitinglist');
 const outBooks= require('./outBooks');
 
 
+
+router.get('/dashboard', dashboard.get );
+router.post('/dashboard', dashboard.post );
 router.get('/', home.get);
 router.post('/addToWaitingList', home.post);
 router.get('/waitinglist',waitinglist.get);
@@ -19,7 +22,7 @@ router.get('/admin', login.get);
 router.get('/dashboard', dashboard.get);
 router.get('/GSG_Library', GSG_Library.get);
 router.post('/search', GSG_Library.search);
-router.post('/GSG_Library', GSG_Library.post);
+router.post('/update', GSG_Library.update);
 router.get('/delete/:id', deletee.delete1);
 router.post('/deletebookfromsearch',deletee.delete2);
 router.get('/addnewbook', addnewbook.get);

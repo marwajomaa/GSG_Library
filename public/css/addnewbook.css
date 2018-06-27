@@ -52,7 +52,9 @@
 	font-family:sans-serif;
 	color:rgb(255, 255, 255,0.4)
 }
-
+.Category {
+	background-color: rgba(40,57,95,.9);
+}
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
 .clearfix:after{clear:both;display:block}

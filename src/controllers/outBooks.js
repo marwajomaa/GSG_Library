@@ -17,15 +17,9 @@ exports.post = (req,res)=>{
 
 	outBook.deleteBook(bookId,(err,result)=>{
 		if(err) console.log('error',err);
-		else{res.send('ok delete');  
+		else{res.send('ok delete');
 		}
 	});
-  
-  
+
+
 };
-
-
-
-
-
-

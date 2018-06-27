@@ -7,7 +7,7 @@ const fetch = (url, method,data, callback)=>{
 		}
 	};
 
-	data= JSON.stringify({data});
+	var data= JSON.stringify({data});
 	xhr.open(method, url);
 	xhr.setRequestHeader('content-type', 'application/json');
 	xhr.send(data);

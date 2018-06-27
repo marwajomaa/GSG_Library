@@ -42,13 +42,14 @@
     <div class="edit" id="edit-{{@index}}">
             <a href="#" class="myBtn" id= {{this.id}}><i class="fas fa-pencil-alt"></i></a>
       </div>
+
       <div id="myModal" class="modal">
 
             <!-- Edit -->
             <div class="modal-content">
               <span class="close">&times;</span>
 
-              <!-- <div class="container"> -->
+              <div class="container">
 
                 <form>
                   <label for="bname">Book name: </label>
@@ -58,7 +59,7 @@
 
                   <label for="author">author: </label>
                   <br>
-                  <input type="text" id="bname" class="author" name="author" value="{{this.author}}">
+                  <input type="text" id="author" class="author" name="author" value="{{this.author}}">
                   <br>
                   <label for="date">publish year: </label>
                   <br>
@@ -75,9 +76,9 @@
                   <br>
                   <textarea class="description" name="subject" value="{{this.description}}" style="height:100px"></textarea>
                   <br>
-                  <button type="submit" name="button" value="submit" class="update" id= {{@index}}>update</button>
+                  <button type="submit" name="button" value="submit" class="update" id= {{this.id}}>update</button>
                 </form>
-
+</div>
             </div>
           </div>
 
