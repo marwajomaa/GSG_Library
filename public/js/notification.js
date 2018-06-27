@@ -1,19 +1,22 @@
 const socket = io.connect('http://localhost:3000');
-
-const output = document.getElementById('output');
-const btn = document.getElementById('btn');
-
-// btn.addEventListener('click',()=>{
+const output = document.getElementById('dropdown-content');
 socket.emit('notification');
-// });
-
-
-// socket.on('notification',(data2)=>{
-// 	console.log('data2', data2);
-// 	// output.innerHTML='ahmad' + data.name;
-// });
-
 socket.on('notification',(data)=>{
-	console.log('data', data);
-	output.innerHTML='ahmad' + data.name;
+	console.log(data);
+	for (let i in data) {
+		output.innerHTML += data[i].status + data[i].userName + ' ';
+	}
+
+
 });
+
+
+function myFunction() {
+	var x = document.getElementById('dropdown-content');
+	console.log(x.className.indexOf('dropdown-content'));
+	if (x.className.indexOf('hide-dropdown-content') == -1) {
+		x.className = x.className.replace('dropdown-content', 'hide-dropdown-content');
+	} else {
+		x.className = x.className.replace('hide-dropdown-content', 'dropdown-content');
+	}
+}

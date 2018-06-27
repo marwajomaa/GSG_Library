@@ -3,7 +3,6 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const expressValidator = require('express-validator');
 const controllers = require('./controllers');
 const helpers = require('./views/helpers/index');
 const Swal = require('sweetalert');
