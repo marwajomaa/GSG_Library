@@ -17,8 +17,6 @@ const button = select('[name=button]');
 const start = select('[name=lendingDate]');
 const end = select('[name=endDate]');
 
-
-
 let messages = (bookstatus, mobilestatus, fullname, emailValue, bookCopyCount, reservedBookCount, availableBook, notify)=>{
 	bookStatus.textContent= bookstatus;
 	mobileStatus.textContent= mobilestatus;
@@ -43,8 +41,10 @@ const eventListener = (element, action)=>{
 	element.addEventListener(action, ()=>{
 		const mobileNumber = mobile.value;
 		const bookName = book.value;
-		fetch('/lendbook', 'POST', mobileNumber, bookName,'','', (res) => {
+		const data ={mobileNumber,bookName};
+		fetch('/lendbook', 'POST', data, (res) => {
 			const data = JSON.parse(res);
+			console.log('rrrrrrrrrrr',data);
 			const status = data.status;
 			errorHandling(status, data);
 		});
@@ -81,45 +81,39 @@ eventListener(mobile, 'blur');
 
 eventListener(book, 'input');
 
-// eventListener(form, 'submit');
-// if(button){
 button.addEventListener('click', ()=>{
 	const mobileNumber = mobile.value;
 	const bookName = book.value;
 	const lendingDate=start.value;
 	const endDate=end.value;
 
-	fetch('/lendbook', 'POST', mobileNumber, bookName,lendingDate,endDate, (res) => {
+	const data = {
+		mobileNumber,
+		bookName,
+		lendingDate,
+		endDate
+	};
+
+	fetch('/lendbook', 'POST', data, (res) => {
+		console.log('res', res);
 		const data = JSON.parse(res);
 		const status = data.status;
-		errorHandling(status, data);
-		mobile.value='';
-		book.value='';
-		fullName.value='';
-		bookCopyMsg.value='';
-		reservedCopyMsg.vlaue='';
-		availableCopyMsg.value='';
-		start.value='';
-		end.value='';
-		email.value='';
-		swal('Hello world!');
 
 
+		if (status===310){
+			mobile.value='';
+			book.value='';
+			fullName.value='';
+			bookCopyMsg.value='';
+			reservedCopyMsg.value='';
+			availableCopyMsg.value='';
+			start.value='';
+			end.value='';
+			email.value='';
+			swal('The Book Lent Successfuly');
+
+		} else {
+			swal('Try Again .. error occured');
+		}
 	});
 });
-
-// }
-
-
-//
-// button.addEventListener('click', ()=>{
-// 	const mobileNumber = mobile.value;
-// 	const bookName = book.value;
-// 	fetch('/lendbook', 'POST', mobileNumber, bookName, (res) => {
-// 		const data = JSON.parse(res);
-// 		const status = data.status;
-// 		errorHandling(status, data);
-// 	});
-// 	book.value='';
-// 	mobile.value='';
-// });

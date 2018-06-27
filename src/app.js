@@ -31,5 +31,8 @@ app.engine(
 
 	})
 );
+app.use((req,res)=>{
+	res.render('404' , { message : 'page Not Found',layout:'error',style:'404'});
+});
 
 module.exports = app;

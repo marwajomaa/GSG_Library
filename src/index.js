@@ -19,7 +19,7 @@ io.on('connection', (socket)=>{
 
 			if(err){
 				const	data = {
-					status: 'Fail sent: ',
+					status: 'Fail sent message to: ',
 					msg: err.message,
 					userName: result.full_name
 				};
@@ -39,5 +39,5 @@ io.on('connection', (socket)=>{
 
 		);
 
-	},60000);
+	},6000);
 });

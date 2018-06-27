@@ -6,10 +6,7 @@ socket.on('notification',(data)=>{
 	for (let i in data) {
 		output.innerHTML += data[i].status + data[i].userName + ' ';
 	}
-
-
 });
-
 
 function myFunction() {
 	var x = document.getElementById('dropdown-content');

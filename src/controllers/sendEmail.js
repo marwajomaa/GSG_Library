@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 require('env2')('./config.env');
 
 const sendEmail=(cb)=>{
-	return	outBook((err,result)=>{
+	return	outBook.infoBook((err,result)=>{
 		if(err) return cb(err);
 		else{
 			for (var x in result) {
