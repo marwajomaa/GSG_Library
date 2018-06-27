@@ -19,7 +19,7 @@
 
 <div class="group">
 
-  <input type="text" name="publish_date" value="" class="publish_date input" placeholder="Publish Date">
+  <input type="date" name="publish_date" value="" class="publish_date input" placeholder="Publish Date">
 </div>
 
 
@@ -31,7 +31,13 @@
 
 <div class="group">
 
-  <input type="text" name="category" value="" class='Category input' placeholder="Category">
+  <!-- <input type="text" name="category" value="" class='Category input' placeholder="Category"> -->
+  <select id="category" name="category" class='input' placeholder="Category">
+
+    {{#each categories}}
+    <option class='Category' value={{this.id}}>{{this.name}}</option>
+    {{/each}}
+  </select>
 </div>
 
 <div class="group">

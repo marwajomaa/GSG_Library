@@ -1,10 +1,39 @@
 const addnewbook= require('./../database/queries/addnewbook');
+
 const fs = require('fs');
 
-exports.get= (req, res)=>{
-	res.render('addnewbook', { style:'addnewbook'});
-};
 
+const{getBooksData,selectCategories}= require('./../database/queries/GSG_Library');
+
+exports.get = (req, res) => {
+	getBooksData((err, booksData) => {
+		if (err) {
+			return res.send('error in getting data');
+		}
+		selectCategories((err, categories) => {
+			if (err) {
+				return res.send('error category data');
+			}
+
+			booksData.forEach((book) => {
+				book.category = [
+					{ id: book.cat_id, name: book.cat_name }
+				];
+				categories.forEach((cat) => {
+					if (book.category[0].id !== cat.id) {
+						book.category.push(cat);
+					}
+				});
+			});
+
+			res.render('addnewbook', {
+				style: 'addnewbook',
+				booksData, categories
+			});
+		});
+
+	});
+};
 
 exports.post = (req, res , next ) => {
 	if (!req.body.fileUrl) {
@@ -14,6 +43,7 @@ exports.post = (req, res , next ) => {
 	console.log('imagePathimagePath',imagePath);
 	const imageText = req.body.fileData.replace(/^data:image\/\w+;base64,/, '');
 	const buffer = new Buffer(imageText, 'base64');
+	console.log(imageText);
 
 	fs.writeFile(imagePath , buffer , (err , done)=>{
 		if(err) return next(err);

@@ -3,37 +3,38 @@
 
   <div class="container">
 
+    {{#each lendbooks}}
+    <div class="dashfig ">
+      <div class="icondiv">
+        <div><i class="fas fa-book-open" style="font-size:60px;color:#00BCD4;margin:35px 70px"></i></div>
+      </div>
+      <div class='figcaption two'><span class='text'>{{this.count}}<br>lent books</span></div>
+    </div>
+    {{/each}}
+    {{#each members}}
+    <div class="dashfig ">
+      <div class="icondiv">
+        <div><i class="fas fa-users" style="font-size:60px;color:#4CAF50;margin:30px 70px"></i></div>
+      </div>
+      <div class='figcaption three'><span class='text'>{{this.count}}<br>GSG members</span></div>
+    </div>
+    {{/each}}
+
     {{#each booksnumbers}}
       <div class="dashfig ">
         <div class="icondiv">
-          <div><i class="fas fa-book fa-fw" style="font-size:60px;color:#F44336;margin:25px 65px"></i></div>
+          <div><i class="fas fa-book fa-fw" style="font-size:60px;color:#F44336;margin:30px 70px"></i></div>
         </div>
-        <div class='figcaption one'><span class='text'>{{this.count}}</span><br>Total books </div>
+        <div class='figcaption one'><span class='text'>{{this.count}}<br>Total books </span></div>
       </div>
     {{/each}}
 
-    {{#each lendbooks}}
-      <div class="dashfig ">
-        <div class="icondiv">
-          <div><i class="fas fa-book-open" style="font-size:60px;color:#2196F3;margin:30px 65px"></i></div>
-        </div>
-        <div class='figcaption two'><span class='text'>{{this.count}}<br>lent books</span></div>
-      </div>
-    {{/each}}
 
-    {{#each members}}
-      <div class="dashfig ">
-        <div class="icondiv">
-          <div><i class="fas fa-users" style="font-size:60px;color:#4CAF50;margin:30px 65px"></i></div>
-        </div>
-        <div class='figcaption three'><span class='text'>{{this.count}}<br>GSG members</span></div>
-      </div>
-    {{/each}}
 
     {{#each lendingmembers}}
       <div class="dashfig">
         <div class="icondiv">
-          <div><i class="fas fa-user-friends" style="font-size:60px;color:#FFA000;margin:30px 65px"></i></div>
+          <div><i class="fas fa-user-friends" style="font-size:60px;color:#FFA000;margin:30px 70px"></i></div>
         </div>
         <div class='figcaption four'><span class='text'>{{this.count}}<br>lending</span></div>
       </div>
@@ -68,3 +69,5 @@
 
 </table>
 </div>
+<script src="/js/index.js" charset="utf-8"></script>
+<script src="/js/sendEmail.js" charset="utf-8"></script>

@@ -1,9 +1,6 @@
 
-const {
-	getBooksData,
-	updateBooks,
-	selectCategories
-} = require('./../database/queries/GSG_Library');
+const{getBooksData,updateBooks,searchBooks,selectCategories}= require('./../database/queries/GSG_Library');
+
 exports.get = (req, res) => {
 	getBooksData((err, booksData) => {
 		if (err) {
@@ -30,17 +27,29 @@ exports.get = (req, res) => {
 				booksData, categories
 			});
 		});
+
 	});
 };
 
-exports.post = (req, res) => {
+exports.search = (req, res) => {
+
+	const {search} = req.body ;
+	searchBooks(search,(err, searchResults)=>{
+		// console.log(err);
+		if(err) return res.send('error in getting data');
+		res.send(searchResults);
+
+	});
+};
+
+exports.update = (req, res) => {
 	const {id, bname,author,publish_year,category,description}= req.body;
 	updateBooks(id, bname,author,publish_year,category,description,(err,result) => {
-		if(err) return res.status(500).send('server error');
-		res.status(200).send({msg:'success recieve'});
+		// console.log(result,'hjjjjjjjjjjjjjjjjjjjjjjjjjj');
+		if(err) return res.status(500).send({status:false, msg:'failed to update'});
+		res.status(200).send({status:true,msg:'success recieve'});
 
 
 
 	});
-
 };
