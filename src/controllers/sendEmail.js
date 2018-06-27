@@ -15,8 +15,8 @@ const sendEmail=(cb)=>{
 						port: 587,
 						secure: false,
 						auth: {
-							user:'beinlive.co@gmail.com',
-							pass: '*20051469'
+							user:process.env.email,
+							pass: process.env.pass
 						},
 
 					});
@@ -25,7 +25,7 @@ const sendEmail=(cb)=>{
 						to: result[x].email,
 						subject: 'lending book ',
 						text: 'pleas return book ',
-						html: '<b>Hell world?</b>',
+						html: '<b>pleas return book </b>',
 					};
 
 					transporter.sendMail(mailOptions, (err, info) => {
