@@ -1,0 +1,60 @@
+
+<div class="header">
+
+    <a href="/"><img class="logo" src="/img/logo.png" alt=""></a>
+
+    <div class="header-right">
+
+      <a href="#">  HOME</a>
+      <a href="#"> CATECORY </a>
+      <a href="#">  CONTACT </a>
+      <a href="#">  ABOUT </a>
+
+    </div>
+
+  </div>
+  </div>
+
+  <div class="contanier">
+
+    {{#each lentbooks}}
+    <div class="box">
+      <div class="imgBox">
+      <img src={{this.image}} alt="">
+      </div>
+      <div class="details">
+        <div class="content">
+          <h2>{{this.book_name}}</h2>
+          <ul>
+            <li>{{this.name}}</li>
+            <li>By: {{this.author}}</li>
+            {{#if book_id}}
+            <li>reserved</li>
+            <div class="waitingList">
+            <p class="want">  Want it ?? </p>
+              <button id="myBtn" class='button'>Add your name to waiting list</button>
+
+              <div id="myModal" class="modal">
+         <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="form" class="" action="/addToWaitingList" method="POST">
+              <input type="text" name="memberName" class='memberName inputForm' value="" placeholder="Your Name">
+              <input type="text" name="bookName" class='bookName inputForm' value="" placeholder="Book Name">
+              <input type="text" name="date" class='date inputForm' value="" placeholder="Date">
+              <button type="submit" name="button" class="button submit">submit</button>
+            </form>
+            </div>
+          </div>
+        </div>
+
+            {{else}}
+            <li>available</li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {{/each}}
+</div>
+<script src="/js/home.js" charset="utf-8"></script>

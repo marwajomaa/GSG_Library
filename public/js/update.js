@@ -17,13 +17,14 @@ Array.from(spans).forEach((span, i) => {
 		modals[i].style.display = 'none';
 	};
 
+
 });
 updateButton.forEach((btn,i) => {
 	updateButton[i].addEventListener('click', (event) => {
 		event.preventDefault();
 
 		const data = JSON.stringify({
-			id: parseInt(event.target.id)+1,
+			id: parseInt(event.target.id),
 			bname: bname[i].value,
 			author: authors[i].value,
 			publish_year: publish_year[0].value,
@@ -31,7 +32,8 @@ updateButton.forEach((btn,i) => {
 			category: category[i].value
 
 		});
-		fetch('/GSG_Library', {
+
+		fetch('/update', {
 			credentials: 'include',
 			headers: {
 				'content-type': 'application/json',
@@ -39,12 +41,23 @@ updateButton.forEach((btn,i) => {
 			method: 'POST',
 			body: data
 		})
-			.then(res => res.json())
-			.then((msg) => {
-				console.log(msg);
+			.then(res => {
+				console.log('res1',res);
+				return res.json();})
+			.then((res) => {
+				console.log('xxxxx',res);
+
+				if (!res.status) {
+					swal(res.message);
+				} else {
+					window.location.pathname='/GSG_Library';
+					// console.log(res.status);
+					swal('Book is successfully updated');
+				}
 			})
-			.catch((error) => {
-				console.log('Request failure: ', error);
+			.catch((err) => {
+				swal('sorry there is an error in update data' +' '+ err);
+
 			});
 
 	});

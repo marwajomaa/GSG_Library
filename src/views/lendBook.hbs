@@ -1,52 +1,55 @@
 
-<div class="reserveBook">
+<div class="reserveBook main" style="width:80%">
+
   <h1>{{title}}</h1>
     <div id="output">
 
     </div>
   <div class="field">
- <label for="">Book Name</label>
-  <input list="bookName" name="bookName" placeholder="Enter Book Name" required>
+ <label for="" class="col-25">Book Name</label>
+  <input class="book--style col-75" list="bookName" name="bookName" placeholder="Enter Book Name" required>
     <datalist id="bookName">
     </datalist>
         <label class="bookStatus"></label>
       </div>
   <div class="field">
-    <label for="">Mobile Number</label>
-    <input class="mobile" type="text" name="mobileNumber" placeholder="Enter Mobile Number" required>
+    <label for="" class="col-25">Mobile Number</label>
+    <input class="mobile col-75" type="text" name="mobileNumber" placeholder="Enter Mobile Number" required>
     <label class="mobileStatus"></label>
   </div>
   <div class="field">
-    <label for="">Full Name</label>
-    <input type="text" name="fullName" value="" disabled>
+    <label for="" class="col-25">Full Name</label>
+    <input class="col-75" type="text" name="fullName" value="" disabled>
   </div>
   <div class="field">
-    <label for="">Email</label>
-    <input type="text" name="email" value="" disabled>
+    <label for="" class="col-25">Email</label>
+    <input class="col-75" type="text" name="email" value="" disabled>
   </div>
   <div class="field">
-    <label for=""># of total copy of book</label>
-    <input type="number" name="bookCopy" value="" disabled>
+    <label class="col-25" for=""># of total copy of book</label>
+    <input class="col-75" type="number" name="bookCopy" value="" disabled>
   </div>
   <div class="field">
-    <label for=""># of copy reserved</label>
-    <input type="number" name="reservedCopy" value="" disabled>
+    <label for="" class="col-25"># of copy reserved</label>
+    <input  class="col-75" type="number" name="reservedCopy" value="" disabled>
   </div>
   <div class="field">
-    <label for=""># of copy available</label>
-    <input type="number" name="availableCopy" value="" disabled>
+    <label for="" class="col-25"># of copy available</label>
+    <input  class="col-75" type="number" name="availableCopy" value="" disabled>
   </div>
   <div class="field">
-    <label for="">Lending Date</label>
-    <input type="date" name="lendingDate" value="">
+    <label for="" class="col-25">Lending Date</label>
+    <input class="col-75" type="date" name="lendingDate" value="">
   </div>
   <div class="field">
-    <label for="">End Date</label>
-    <input type="date" name="endDate" value="">
+    <label for="" class="col-25">End Date</label>
+    <input class="col-75" type="date" name="endDate" value="">
   </div>
   <div class="field">
-    <label class="notification"></label>
+    <label class="col-25 notification"></label>
   </div>
+   <label for="" class="col-25"></label>
   <button type="submit" name="button" disabled>Lend</button>
+
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

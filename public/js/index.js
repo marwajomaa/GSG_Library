@@ -1,4 +1,3 @@
-
 const fetch = (url, method,data, callback)=>{
 	const xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){

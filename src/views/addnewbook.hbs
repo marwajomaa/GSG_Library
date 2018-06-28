@@ -1,0 +1,59 @@
+
+<section>
+<div class="containter">
+  <div class="formDiv">
+
+  <div class="title">
+    <h1>Add New Book</h1>
+  </div>
+    <form id='bookForm' class="form" action="/addnewbook" autocomplete="name" method="POST" encType="multipart/form-data" >
+      <div class="group">
+          <input type="file" id="upload" name="fileUrl" class="fileUrl input"  placeholder="upload image">
+      </div>
+
+      <div class="group">
+
+        <input type="text" name="book_name" value="" class="book_name input" placeholder="Book Name">
+      </div>
+
+
+<div class="group">
+
+  <input type="date" name="publish_date" value="" class="publish_date input" placeholder="Publish Date">
+</div>
+
+
+<div class="group">
+
+  <input type="text" name="author" value="" class="author input" placeholder="Author">
+</div>
+
+
+<div class="group">
+
+  <!-- <input type="text" name="category" value="" class='Category input' placeholder="Category"> -->
+  <select id="category" name="category" class='input' placeholder="Category">
+
+    {{#each categories}}
+    <option class='Category' value={{this.id}}>{{this.name}}</option>
+    {{/each}}
+  </select>
+</div>
+
+<div class="group">
+
+  <input type="text" name="description" value="" class="description input" placeholder="Description">
+</div>
+
+<div class="group">
+
+  <button type="submit" name="button" class="button">Add</button>
+</div>
+
+    </form>
+  </div>
+  </div>
+
+</section>
+<script src="/js/addnewbook.js" charset="utf-8"></script>
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->

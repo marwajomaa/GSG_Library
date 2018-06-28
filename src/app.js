@@ -1,21 +1,26 @@
 const express = require('express');
+const app= express();
 const exphbs = require('express-handlebars');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+// const expressValidator = require('express-validator');
 const controllers = require('./controllers');
+
+const compression = require('compression');
+const fileupload = require('express-fileupload');
+
+
 const helpers = require('./views/helpers/index');
 const Swal = require('sweetalert');
 
-
-//init app
-
-const app = express();
-
-// view setup
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(fileupload());
+app.use(bodyParser.urlencoded({ limit: '50mb',extended: false }));
 app.use(cookieParser());
+
+app.set('port', process.env.PORT || 3000);
+app.use(compression());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, '..', 'public')));
