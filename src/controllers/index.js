@@ -8,7 +8,11 @@ const outBook = require('./outBooks');
 const GSG_Library = require('./GSG_Library');
 
 const serverError=require('./500');
+router.get('/login', login.get);
+router.post('/login', login.post);
 
+
+// router.use(checkuser);
 router.get('/dashboard', dashboard.get );
 
 router.get('/serverError', serverError.get );
@@ -16,8 +20,6 @@ router.get('/serverError', serverError.get );
 router.get('/GSG_Library', GSG_Library.get);
 router.post('/GSG_Library', GSG_Library.post);
 
-router.get('/login', login.get);
-router.post('/login', login.post);
 
 router.get('/lendbook', lendBook.get);
 router.post('/lendbook', lendBook.post);

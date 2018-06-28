@@ -1,0 +1,27 @@
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin-left: -178px;
+    margin-top: 53px;
+    scroll-behavior: auto;
+}
+.hide-dropdown-content {
+    display: none;
+}
+.dropdown:active .dropdown-content {
+display: block;
+}
+
+.alert{
+  margin-top: 10px;
+
+  padding: 25px;
+background: darkslategray;
+color: whitesmoke;
+border-radius: 10px;
+}

@@ -25,7 +25,7 @@ exports.get = (req, res) => {
 			});
 
 			res.render('GSG_Library', {
-				style: 'GSG_Library',
+				style: 'GSG_Library', title: 'GSG Library',
 				booksData, categories
 			});
 		});
@@ -33,14 +33,10 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-	console.log(req.body);
 	const {id, bname,author,publish_year,category,description}= req.body;
 	updateBooks(id, bname,author,publish_year,category,description,(err,result) => {
 		if(err) return res.status(500).send('server error');
 		res.status(200).send({msg:'success recieve'});
-
-
-
 	});
 
 };

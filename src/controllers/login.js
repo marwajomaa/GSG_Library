@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const secret = process.env.SECRET;
 
 exports.get = (req, res, next)=>{
-	res.render('login', { style: 'css/login.css' });
+	res.render('login', { style: 'css/login.css',  title:'login' });
 };
 
 exports.post = (req, res) => {
@@ -21,7 +21,7 @@ exports.post = (req, res) => {
 				const userData = { userId: data[0].id, userName: data[0].user_name };
 				const token = sign(userData, secret);
 				res.cookie('user', token, { maxAge: 3600, httpOnly: true });
-				res.redirect('/');
+				res.redirect('/dashboard');
 			}
 		});
 	});

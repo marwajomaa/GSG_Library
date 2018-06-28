@@ -27,7 +27,7 @@ exports.get = (req, res) => {
 						if (tabelDashboardError) return res.status(500);
 
 						res.render('dashboard', {
-							style: 'dashboard',
+							style: 'dashboard', title: 'Dashboard',
 							booksnumbers,
 							lendbooks,
 							members,
