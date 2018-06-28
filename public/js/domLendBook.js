@@ -95,7 +95,7 @@ button.addEventListener('click', ()=>{
 		endDate
 	};
 
-	fetch('/lendbook', 'POST', data, (res) => {
+	fetchUrl('/lendbook', 'POST', data, (res) => {
 		const data = JSON.parse(res);
 		const status = data.status;
 

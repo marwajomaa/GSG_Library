@@ -6,6 +6,7 @@ const getBooksData = (cb) => {
 	db.query(sql, (err, booksData) => {
 		if (err) return cb(err);
 		return cb(null, booksData.rows);
+		
 	});
 };
 

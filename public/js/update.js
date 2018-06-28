@@ -17,8 +17,14 @@ Array.from(spans).forEach((span, i) => {
 		modals[i].style.display = 'none';
 	};
 
-
 });
+
+window.onclick = function(event) {
+	if (event.target == modals) {
+		modals.style.display = 'none';
+	}
+};
+
 updateButton.forEach((btn,i) => {
 	updateButton[i].addEventListener('click', (event) => {
 		event.preventDefault();
