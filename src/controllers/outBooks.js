@@ -4,7 +4,7 @@ exports.get = (req, res)=>{
 	outBook.infoBook ((err,result)=>{
 		if(err) res.render('500' , { message : 'Server Error',layout:'error',style:'500'});
 		else{
-			res.render('outBooks',{result:result,jsFile:'domOutBook',	style: 'outBook'});
+			res.render('outBooks',{result:result,jsFile:'domOutBook', title: 'Out Book',	style: 'outBook'});
 			console.log('result', result);
 		}
 	});

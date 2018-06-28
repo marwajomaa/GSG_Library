@@ -6,7 +6,7 @@ sendEmail.forEach((i) => {
 	if(intleftdays < 0){
 		i.style.display  ='block';
 		i.addEventListener('click', () => {
-			fetch('/dashboard','post',idbook,(res)=>{
+			fetchUrl('/dashboard','post',idbook,(res)=>{
 
 
 			});

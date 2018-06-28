@@ -1,4 +1,4 @@
-const fetch = (url, method,data, callback)=>{
+const fetchUrl = (url, method,data, callback)=>{
 	const xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState === 4 && xhr.status === 200){

@@ -1,19 +1,24 @@
 const socket = io.connect('http://localhost:3000');
 const output = document.getElementById('dropdown-content');
+const alertCount = document.getElementById('alertCount');
+
 socket.emit('notification');
 socket.on('notification',(data)=>{
-	console.log(data);
+	alertCount.textContent = data.length;
 	for (let i in data) {
-		output.innerHTML += data[i].status + data[i].userName + ' ';
+		const cretaDiv = document.createElement('div');
+		cretaDiv.className ='alert';
+		const content = document.createTextNode(data[i].status + data[i].userName);
+		cretaDiv.appendChild(content);
+		output.appendChild(cretaDiv);
 	}
 });
 
-function myFunction() {
-	var x = document.getElementById('dropdown-content');
-	console.log(x.className.indexOf('dropdown-content'));
-	if (x.className.indexOf('hide-dropdown-content') == -1) {
-		x.className = x.className.replace('dropdown-content', 'hide-dropdown-content');
+function showHideNotification() {
+	let dropContent = document.getElementById('dropdown-content');
+	if (dropContent.className.indexOf('hide-dropdown-content') == -1) {
+		dropContent.className = dropContent.className.replace('dropdown-content', 'hide-dropdown-content');
 	} else {
-		x.className = x.className.replace('hide-dropdown-content', 'dropdown-content');
+		dropContent.className = dropContent.className.replace('hide-dropdown-content', 'dropdown-content');
 	}
 }

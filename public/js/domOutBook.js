@@ -4,7 +4,7 @@ buttonBook.forEach((e)=>{
 		const bookId=e.value;
 		const id = {bookId};
 
-		fetch('/outBook', 'POST',id, (res) => {
+		fetchUrl('/outBook', 'POST',id, (res) => {
 			const data = JSON.parse(res);
 			const status = data.status;
 

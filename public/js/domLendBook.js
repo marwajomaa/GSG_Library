@@ -44,9 +44,8 @@ const eventListener = (element, action)=>{
 		const mobileNumber = mobile.value;
 		const bookName = book.value;
 		const data ={mobileNumber,bookName};
-		fetch('/lendbook', 'POST', data, (res) => {
+		fetchUrl('/lendbook', 'POST', data, (res) => {
 			const data = JSON.parse(res);
-			console.log('rrrrrrrrrrr',data);
 			const status = data.status;
 			errorHandling(status, data);
 		});
@@ -97,7 +96,6 @@ button.addEventListener('click', ()=>{
 	};
 
 	fetch('/lendbook', 'POST', data, (res) => {
-		console.log('res', res);
 		const data = JSON.parse(res);
 		const status = data.status;
 

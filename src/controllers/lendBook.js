@@ -4,7 +4,7 @@ const bookReservedNum = require('../database/queries/countLendingBooks');
 const reserv = require('../database/queries/lendBook');
 
 exports.get = (req, res)=>{
-	res.render('lendBook', { style: 'lendBook', jsFile:'domLendBook' });
+	res.render('lendBook', { style: 'lendBook',  title: 'Lending Book', jsFile:'domLendBook' });
 };
 
 exports.post = (req, res)=>{

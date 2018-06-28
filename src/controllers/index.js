@@ -11,9 +11,11 @@ const home = require('./home');
 const addnewbook = require('./addnewbook');
 // const waitinglist = require('./waitinglist');
 const serverError=require('./500');
+
 router.get('/dashboard', dashboard.get );
 router.post('/dashboard', dashboard.post );
 router.get('/serverError', serverError.get );
+
 router.get('/', home.get);
 router.post('/addToWaitingList', home.post);
 // router.get('/waitinglist',waitinglist.get);
@@ -27,6 +29,7 @@ router.get('/addnewbook', addnewbook.get);
 router.post('/addnewbook', addnewbook.post);
 router.get('/login', login.get);
 router.post('/login', login.post);
+
 router.get('/lendbook', lendBook.get);
 router.post('/lendbook', lendBook.post);
 router.get('/outBook', outBook.get);

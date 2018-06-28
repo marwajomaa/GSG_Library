@@ -3,17 +3,16 @@ const port = 3000;
 const userTracker= require('./controllers/sendEmail');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const dataArray = [];
 
 http.listen(port, ()=>{
 	console.log('server connected at port #', port);
 });
 
-
 io.on('connection', (socket)=>{
 	console.log('socket connected');
 
 	setInterval(function(){
-		const dataArray = [];
 
 		userTracker((err, result, res)=>{
 
@@ -39,5 +38,5 @@ io.on('connection', (socket)=>{
 
 		);
 
-	},6000);
+	},999000);
 });

@@ -23,7 +23,7 @@ const get  = (req, res) => {
 			});
 
 			res.render('GSG_Library', {
-				style: 'GSG_Library',
+				style: 'GSG_Library', title: 'GSG Library',
 				booksData, categories
 			});
 		});
