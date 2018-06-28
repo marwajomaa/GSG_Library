@@ -1,10 +1,8 @@
 const db = require('./../db_connection');
 
 const addnewbook = (data,cb) => {
-	// console.log(data,'ddddddddddddddddddddd');
 	const { category ,book_name,publish_date, author,description } = data;
 	const picUrl = data.picUrl.split('public/')[1];
-	// console.log(picUrl,'pppppppppppppppppppp');
 	const insertCategorySQL ={
 		text : 'INSERT INTO category(name) VALUES($1) RETURNING *',
 		values:[category]
@@ -19,7 +17,6 @@ const addnewbook = (data,cb) => {
 
 		db.query(sql , (err ,bookDetails)=>{
 			if(err) return cb(err);
-			console.log( bookDetails.rows);
 			cb(null , bookDetails.rows);
 		});
 	});

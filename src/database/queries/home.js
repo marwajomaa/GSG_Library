@@ -4,14 +4,10 @@ const checklentbooks = (cb) => {
 	const sql = 'SELECT category.name,books.book_name,lending.book_id,books.id,books.author,books.image from books left outer join lending on books.id=lending.book_id join category on category.id=books.category_id ORDER BY id';
 	db.query(sql, (err, lentbooks) => {
 		if (err) return cb(err);
-		// console.log( lentbooks.rows);
 		return cb(null,lentbooks.rows);
 	});
 };
-
-
 const addToWaitingList =(memberName, bookName, date, cb)=>{
-
 	const selectIds = {
 		text: 'SELECT members.id as mId,books.id as bId FROM members INNER JOIN books ON members.id = books.id WHERE members.full_name = $1 AND books.book_name = $2',
 		values : [memberName,bookName]
@@ -25,7 +21,6 @@ const addToWaitingList =(memberName, bookName, date, cb)=>{
 		};
 		db.query(sql, (err ,waitingList)=>{
 			if(err) return cb(err);
-			console.log( waitingList.rows);
 			cb(null , waitingList.rows);
 		});
 

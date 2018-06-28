@@ -1,5 +1,5 @@
 
-const swal = require('sweetalert');
+
 const select = (element) => {
 	return document.querySelector(element);
 };

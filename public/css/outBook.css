@@ -1,3 +1,11 @@
+.main{
+
+  margin-left:250px;
+  margin-top:50px;
+  padding: 30px 30px;
+
+}
+
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -40,9 +48,4 @@
 }
 .buttonBook:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.main{
-  margin-left: 220px;
-  padding: 0px 0px;
-
 }

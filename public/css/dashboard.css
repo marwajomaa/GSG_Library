@@ -117,7 +117,9 @@ height: 80%;
   border-collapse: collapse;
   width: 50%;
   margin-top: 250px;
-  font-size: 18px
+  font-size: 18px;
+  position: relative;
+right: -236px;
 }
 
 td, th {
@@ -148,7 +150,7 @@ tr:first-child {
     padding: 5px 23px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: none;
     font-size: 17px;
     display: block;
     border-radius: 20px;

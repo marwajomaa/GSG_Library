@@ -11,6 +11,7 @@ btn.addEventListener('submit',addNewBook);
 
 
 function addNewBook(e){
+	e.preventDefault();
 	var reader  = new FileReader();
 	reader.addEventListener('load', function () {
 		myFileData = reader.result;

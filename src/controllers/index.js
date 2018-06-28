@@ -12,7 +12,7 @@ const addnewbook = require('./addnewbook');
 // const waitinglist = require('./waitinglist');
 const serverError=require('./500');
 router.get('/dashboard', dashboard.get );
-// router.post('/dashboard', dashboard.post );
+router.post('/dashboard', dashboard.post );
 router.get('/serverError', serverError.get );
 router.get('/', home.get);
 router.post('/addToWaitingList', home.post);

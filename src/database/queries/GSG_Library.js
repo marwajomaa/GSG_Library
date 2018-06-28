@@ -5,11 +5,9 @@ const getBooksData = (cb) => {
 
 	db.query(sql, (err, booksData) => {
 		if (err) return cb(err);
-		// console.log( booksData.rows);
 		return cb(null, booksData.rows);
 	});
 };
-
 
 const searchBooks = (search, cb) => {
 	const sql = {
@@ -17,14 +15,9 @@ const searchBooks = (search, cb) => {
 	};
 	db.query(sql, (err, searchBooks) => {
 		if (err) return cb(err);
-		// console.log(searchBooks);
 		return cb(null,searchBooks.rows);
 	});
 };
-
-
-
-
 
 const selectCategories = (cb) => {
 	const sql = 'SELECT * from category';
@@ -36,21 +29,14 @@ const selectCategories = (cb) => {
 };
 
 const updateBooks = (id, bname,author,publish_year,category_id,description,cb) => {
-	console.log(id,'hhhhhhhhhhhhhhh');
 	const sql = {
 		text:'update books set book_name = $2, author = $3,publish_year=$4 ,category_id=$5 ,description=$6 where id=$1 RETURNING *',
 		values: [id, bname,author,publish_year,category_id,description]
 	};
 	db.query(sql,(err,result) =>{
-		console.log(err,'eerrrr');
-		console.log(result,'dddddd');
 		if (err) return cb(err);
 		cb(null,result.rows);
-		console.log(result.rows);
-
 	});
 };
-
-
 
 module.exports = {getBooksData, searchBooks,updateBooks,selectCategories};

@@ -1,7 +1,6 @@
 const db = require('./../db_connection');
 
 const deleteBook = (id, cb)=>{
-	// console.log('nnnnnnnnnnn',id);
 	const sql = {
 		text: 'DELETE FROM books WHERE id = $1 RETURNING *',
 		values: [id]
