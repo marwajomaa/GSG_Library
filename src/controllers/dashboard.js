@@ -12,22 +12,27 @@ require('env2')('./config.env');
 
 exports.get = (req, res) => {
 	getbooksnumbers((err, booksnumbers) => {
-		if (err) return res.send('error in database');
-
+		if (err) {
+			res.send('error in database');
+		}
 		getlentbooks((err, lendbooks) => {
-			if (err) return res.send('error in database');
-
+			if (err) {
+				res.send('error in database');
+			}
 			getmembers((err, members) => {
-				if (err) return res.send('error in database');
-
+				if (err) {
+					res.send('error in database');
+				}
 				getlendingmembers((err, lendingmembers) => {
-					if (err) return res.send('error in database');
+					if (err) {
 
+						res.send('error in database');
+					}
 					tabelDashboard((tabelDashboardError, result) => {
 
 						if (tabelDashboardError) return res.status(500);
 						res.render('dashboard', {
-							style: 'dashboard',
+							style: 'dashboard', title: 'Dashboard',
 							booksnumbers,
 							lendbooks,
 							members,
@@ -39,11 +44,11 @@ exports.get = (req, res) => {
 			});
 		});
 	});
-
 };
 exports.post =(req,res)=>{
 	const {data}=req.body;
 	sendMail(data,(err,result) => {
+		console.log(data);
 		if(err)
 		 return res.status(500);
 		else{

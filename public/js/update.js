@@ -16,9 +16,15 @@ Array.from(spans).forEach((span, i) => {
 	span.onclick = function() {
 		modals[i].style.display = 'none';
 	};
-	
 
 });
+
+window.onclick = function(event) {
+	if (event.target == modals) {
+		modals.style.display = 'none';
+	}
+};
+
 updateButton.forEach((btn,i) => {
 	updateButton[i].addEventListener('click', (event) => {
 		event.preventDefault();
@@ -41,9 +47,11 @@ updateButton.forEach((btn,i) => {
 			method: 'POST',
 			body: data
 		})
-			.then(res => res.json())
+			.then(res => {
+				console.log('res1',res);
+				return res.json();})
 			.then((res) => {
-				console.log(res);
+				console.log('xxxxx',res);
 
 				if (!res.status) {
 					swal(res.message);

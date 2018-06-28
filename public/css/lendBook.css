@@ -1,0 +1,50 @@
+.main{margin-left: 25%;margin-top:50px;padding: 10px 0px;
+}
+
+input[type=text], input[type=number] ,input[type=date],.book--style{
+
+padding: 12px 10px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+.col-25 {
+float: left;
+width: 25%;
+margin-left: -25px;
+margin-top: 6px;
+color:rgb(66, 63, 63);
+font-weight: bold;
+}
+.col-75 {
+float: left;
+width: 60%;
+margin-top: 6px;
+}
+button{
+background-color: rgb(31, 100, 35);
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+float: left;
+font-weight: bold;
+padding: 10px 40px;
+
+}
+
+button:hover {
+background-color: #1e7e22;
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+@media screen and (max-width: 600px) {
+.col-25, .col-75, input[type=submit],button {
+width: 100%;
+margin-top: 0;
+}
+}

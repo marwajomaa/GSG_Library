@@ -1,4 +1,5 @@
 const express = require('express');
+const app= express();
 const exphbs = require('express-handlebars');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -12,7 +13,6 @@ const fileupload = require('express-fileupload');
 
 const helpers = require('./views/helpers/index');
 const Swal = require('sweetalert');
-const app = express();
 
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(fileupload());
@@ -36,8 +36,8 @@ app.engine(
 
 	})
 );
-
-
-
+app.use((req,res)=>{
+	res.render('404' , { message : 'page Not Found',layout:'error',style:'404'});
+});
 
 module.exports = app;

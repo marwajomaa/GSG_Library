@@ -1,16 +1,26 @@
-{{#each result}}
-<div>{{this.full_name}}</div>
-<div>{{this.book_name}}</div>
+<div class="main" style="width:70%">
+<table   id="customers">
 
-<div>{{this.start_date}}</div>
+  <tr>
+    <th>Member</th>
+    <th>The Name Of Book</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>No.mobile</th>
+    <th></th>
+  </tr>
+  {{#each result}}
+  <tr>
+    <td>{{this.full_name}}</td>
+    <td>{{this.book_name}}</td>
 
-<div>{{this.end_date}}</div>
-
-
+    <td>{{split this.start_date}}</td>
+    <td>{{split this.end_date}}</td>
+    <td>{{this.mobile}}</td>
+    <td>
 <button value={{this.id}} class="buttonBook">back</button>
-{{/each}}
-
-
-<script src="/js/domOutBook.js">
-
-</script>
+</td>
+  </tr>
+  {{/each}}
+  </table>
+  </div>

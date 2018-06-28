@@ -1,3 +1,4 @@
 module.exports = {
-	leftdays: require('./leftdays')
+	leftdays: require('./leftdays'),
+	split: require('./dateShape')
 };

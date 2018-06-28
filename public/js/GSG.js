@@ -28,13 +28,13 @@ Array.from(cancel).forEach((span,i) =>{
 
 });
 
-
-window.onclick = function(event) {
-	if (event.target == modale) {
-		modale.style.display = 'none';
-	}
-};
-
+// document.body.onclick = function(event) {
+// 	console.log(event.target,'jjjjjjjjjjjjjjjjj');
+// 	if (event.target !== modale) {
+// 		document.getElementById('myModale').style.display = 'none';
+// 		console.log(1);
+// 	}
+// };
 
 function toggleModal(e) {
 	modall.classList.toggle('show-modall');
@@ -46,7 +46,6 @@ function windowOnClick(event) {
 		toggleModal();
 	}
 }
-
 
 search.addEventListener('keyup', searchFunction);
 
@@ -144,14 +143,10 @@ function renderTableResults(searchResults){
 		divDelete.appendChild(trigger);
 		span2.appendChild(i2);
 		trigger.appendChild(span2);
-		// if (!trigger.hasChildNodes()) {
-		//
-		// 	trigger.appendChild(span2);
-		// }
 		trigger.addEventListener('click', toggleModal);
 		closeButton.addEventListener('click', toggleModal);
 		window.addEventListener('click', windowOnClick);
-	 	deletebookbtn.forEach((btn,i) => {
+		deletebookbtn.forEach((btn,i) => {
 			deletebookbtn[i].addEventListener('click', deletebook);
 		});
 		action.appendChild(edit);
@@ -169,11 +164,9 @@ function renderTableResults(searchResults){
 	contanier.appendChild(divTableBody);
 
 	if(searchResults.length === 0 ){
-		swal('Sorry there is no result found!');
+	    swal('Sorry there is no result found!');
 	}
 }
-
-
 
 function deletebook(){
 	const data = JSON.stringify({
@@ -181,27 +174,28 @@ function deletebook(){
 
 	});
 	const headers = {
-		headers: {
-			'content-type': 'application/json',
-		},
-		method: 'POST',
-		body: data,
+	    headers: {
+	        'content-type': 'application/json',
+	    },
+	    method: 'POST',
+	    body: data,
 	};
 
 	fetch('/deletebookfromsearch', headers)
-		.then(res => res.json())
-		.then((res) => {
-			console.log(res.status);
-			// console.log(res);
-			if (!res.status) {
-				swal(res.message);
-			} else {
-			// console.log(res.status);
-				swal('Book is successfully deleted');
-			}
-		})
-		.catch((err) => {
-			swal('sorry there is an error in data' +' '+ err);
+	    .then(res => res.json())
+	    .then((res) => {
+	        console.log(res.status);
+	        // console.log(res);
+	        if (!res.status) {
+	            swal(res.message);
+	        } else {
+	        // console.log(res.status);
+	            swal('Book is successfully deleted');
+	            window.location.pathname='/GSG_Library';
+	        }
+	    })
+	    .catch((err) => {
+	        swal('sorry there is an error in data' +' '+ err);
 
-		});
+	    });
 }

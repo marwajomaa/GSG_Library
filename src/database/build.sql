@@ -16,23 +16,22 @@ CREATE TABLE admin (
 	password varchar(400) NOT NULL
 );
 
-CREATE TABLE books (
-  id serial PRIMARY KEY,
-  author varchar(100) NOT NULL,
-  publish_year varchar(100) NOT NULL,
-  category_id integer,
-  book_name varchar(100) NOT NULL UNIQUE,
-  image varchar(400) ,
-  description varchar(500) NOT NULL
-
-);
-
 
 CREATE TABLE category (
 	id serial PRIMARY KEY,
 	name varchar(150) NOT NULL
 );
 
+CREATE TABLE books (
+  id serial PRIMARY KEY ,
+  author varchar(100) NOT NULL,
+  publish_year varchar(100) NOT NULL,
+  category_id integer NOT NULL REFERENCES category(id),
+  book_name varchar(100) NOT NULL ,
+  image varchar(400),
+  description varchar(500) NOT NULL,
+  num_copy integer
+);
 
 
 CREATE TABLE waiting_list (
@@ -50,16 +49,13 @@ CREATE TABLE lending (
 	member_id integer NOT NULL  REFERENCES members(id) ON DELETE CASCADE,
 	start_date DATE NOT NULL,
 	end_date DATE NOT NULL
-
 );
 
 
 
-
-
 INSERT INTO members (full_name, mobile, email) VALUES
-('marwajomaa','0599999999','ma@gmail.com'),
-('haneenshahwan', '0599999991', 'haneen@gmail.com'),
+('marwajomaa','0599999999','haneen9.3@hotmail.com'),
+('haneenshahwan', '0599999991', 'marwajomaa4@gmail.com'),
 ('emankhaled', '0591234567', 'emankhaled@gmail.com'),
 ('ahmedshatat', '0591234561', 'ahmedshatat@gmail.com'),
 ('abdallsamad', '0591234564', 'abdallsamad@gmail.com'),
@@ -74,7 +70,12 @@ INSERT INTO members (full_name, mobile, email) VALUES
 ('israa', '0594234568', 'israa@gmail.com'),
 ('inass', '0595234568', 'inass@gmail.com'),
 ('sallam', '0596234568', 'sallam@gmail.com');
-
+insert into members(full_name, mobile, email) values('', 0597165984, 'a7m4d.m.sh@gmail.com');
+  insert into members(full_name, mobile, email) values('Jana', 0595165984, 'a7m4.d.m.sh@gmail.com');
+    insert into members(full_name, mobile, email) values('Mohammed ', 0596165984, 'a7m4d.m.s.h@gmail.com');
+      insert into members(full_name, mobile, email) values('Yousef', 0598165984, 'kjdfkdjfmn@ail.com');
+        insert into members(full_name, mobile, email) values('eman', 0592043608, 'eman_h_2009@live.com');
+INSERT INTO admin (user_name,email,password) VALUES('Ahmad','a7m4d.m.sh@gmail.com','$2b$10$x7366q8tLnOAs90pfn8QYuu7NfJviiEA6XRdqhefRyXRqxLYhad9q');
 INSERT INTO category (name) VALUES
 ('programming'),
 ('desgin'),
@@ -84,25 +85,42 @@ INSERT INTO category (name) VALUES
 
 INSERT INTO books (author,publish_year,book_name,category_id, description) VALUES
 ('Azat Mardan','November 23, 2013','Express.js Guide','1','The in-depth, detailed, hand-on manual on Express.js.'),
-
-
 ('Tim Brown', 'September 29, 2009', 'Change by Design', '2',
-'In Change by Design, Tim Brown, CEO of IDEO, the celebrated innovation and design firm.'),
+  'In Change by Design, Tim Brown, CEO of IDEO, the celebrated innovation and design firm.'),
 
-('Gabriel Wyner', 'August 5, 2014', 'Fluent Forever', '3',
-'The ultimate rapid language-learning guide! For those who’ve despaired of ever learning a foreign language.'),
+  ('Gabriel Wyner', 'August 5, 2014', 'Fluent Forever', '3',
+    'The ultimate rapid language-learning guide! For those who’ve despaired of ever learning a foreign language.'),
 
-('McGraw-Hill', 'August 4,1986','Database System Concepts', '4',
-'Database System Concepts, by Abraham Silberschatz and Hank Korth, is a classic textbook on database systems.'),
+    ('McGraw-Hill', 'August 4,1986','Database System Concepts', '4',
+      'Database System Concepts, by Abraham Silberschatz and Hank Korth, is a classic textbook on database systems.'),
 
-('Jon Duckett', 'june 2,2013','JavaScript and JQuery' ,'5',
+      ('Jon Duckett', 'june 2,2013','JavaScript and JQuery' ,'5','JavaScript was written to give readers an accurate .');
+        INSERT INTO lending (book_id,member_id,start_date,end_date ) VALUES
+        (1, 1, '2018-6-1', '2018-6-11'),
+        (2, 2, '2018-6-2', '2018-6-12'),
+        (4, 6, '2018-6-3', '2018-6-13'),
+        (5, 9, '2018-6-5', '2018-6-15');
+insert into books(author, publish_year, category_id, book_name, image, description, num_copy) values('John', 2000, 1, 'java', 'img', 'java learning', 2);
+insert into books(author, publish_year, category_id, book_name, image, description, num_copy) values('Matt', 2001, 2, 'javascript', 'img2', 'javascript learning', 1);
+insert into books(author, publish_year, category_id, book_name, image, description, num_copy) values('Owen', 1890, 3, 'pascal', 'img3', 'pascal', 4);
+insert into books(author, publish_year, category_id, book_name, image, description, num_copy) values('Nicoal', 2010, 4, 'android', 'img4', 'android', 1);
+insert into books(author, publish_year, category_id, book_name, image, description, num_copy) values('Ahmad', 1990, 5, 'php', 'img5', 'php learning', 1);
+-- insert into lending(book_id, member_id, start_date, end_date) values(1, 3, '2018-6-11', '2018-6-11');
+-- insert into lending(book_id, member_id, start_date, end_date) values(2, 1, '2018-6-11', '2018-6-11');
+-- insert into lending(book_id, member_id, start_date, end_date) values(3, 2, '2018-6-11', '2018-6-11');
+-- insert into lending(book_id, member_id, start_date, end_date) values(4, 5, '2018-6-11', '2018-6-11');
+-- insert into lending(book_id, member_id, start_date, end_date) values(5, 4, '2018-6-11', '2018-6-11');
+--   insert into lending(book_id, member_id, start_date, end_date) values(1, 1, '2-2-2018', '2-4-2018');
+  -- insert into lending(book_id, member_id, start_date, end_date) values(2, 2, '2-2-2018', '2-3-2018');
+  -- insert into lending(book_id, member_id, start_date, end_date) values(3, 3, '2-2-2018', '2-3-2018');
+  -- insert into lending(book_id, member_id, start_date, end_date) values(4, 1, '2-2-2018', '2-5-2018');
+  -- insert into lending(book_id, member_id, start_date, end_date) values(5, 4, '2-2-2018', '2-4-2018');
+  -- insert into lending(book_id, member_id, start_date, end_date) values(1, 1, '2-2-2018', '9-2-2018');
+  -- insert into lending(book_id, member_id, start_date, end_date) values(2, 2, '2-2-2018', '9-2-2018');
+  -- insert into lending(book_id, member_id, start_date, end_date) values(3, 3, '2-2-2018', '9-2-2018');
+  -- insert into lending(book_id, member_id, start_date, end_date) values(4, 4, '2-2-2018', '9-2-2018');
+  -- insert into lending(book_id, member_id, start_date, end_date) values(5, 2, '2-2-2018', '9-2-2018');
 
-'JavaScript was written to give readers an accurate .');
 
-INSERT INTO lending (book_id,member_id,start_date,end_date ) VALUES
-('1', '1', '2018-6-1', '2018-6-11'),
-('2', '2', '2018-6-2', '2018-6-12'),
-('4', '6', '2018-6-3', '2018-6-13'),
-('5', '9', '2018-6-5', '2018-6-15');
 
 COMMIT;
