@@ -2,7 +2,7 @@
 
 <div id="searchDiv">
   <form action="" autocomplete="on">
-  <input id="search" name="search" type="text" placeholder="search.."><input id="search_submit" value="Rechercher" type="submit">
+  <input id="search" name="search" type="text" placeholder="search.." class='search'><input id="search_submit" value="Rechercher" type="submit" class='search'>
   </form>
 </div>
 
@@ -40,7 +40,8 @@
 <div class="divTableCell">
   <div class="action">
     <div class="edit" id="edit-{{@index}}">
-            <a href="#" class="myBtn" id= {{this.id}}><i class="fas fa-pencil-alt"></i></a>
+            <a href="#" class="myBtn" id= {{this.id}}><i class="fas fa-pencil-alt"  style="font-size:20px;color:blue;margin:5px"></i></a>
+
       </div>
 
       <div id="myModal" class="modal">
@@ -54,18 +55,18 @@
                 <form>
                   <label for="bname">Book name: </label>
                   <br>
-                  <input type="text" id="bname" class="bname" name="bookname" value="{{this.book_name}}">
+                  <input type="text" id="bname" class="bname inputForm" name="bookname" value="{{this.book_name}}">
                   <br>
 
                   <label for="author">author: </label>
                   <br>
-                  <input type="text" id="author" class="author" name="author" value="{{this.author}}">
+                  <input type="text" id="author" class="author inputForm" name="author" value="{{this.author}}">
                   <br>
                   <label for="date">publish year: </label>
                   <br>
-                  <input type="text" id="publish_year" class="publish_year" name="publish_date" value="{{this.publish_year}}">
+                  <input type="text" id="publish_year" class="publish_year inputForm" name="publish_date" value="{{this.publish_year}}">
                   <br>
-                  <select id="category" name="category" class="category">
+                  <select id="category" name="category" class="category inputForm">
                     {{#each this.category}}
                     <option value={{this.id}}>{{this.name}}</option>
                     {{/each}}
@@ -74,9 +75,9 @@
 
                   <label for="subject">description: </label>
                   <br>
-                  <textarea class="description" name="subject" value="{{this.description}}" style="height:100px"></textarea>
+                  <textarea class="description inputForm" name="subject" value="{{this.description}}" style="height:100px"></textarea>
                   <br>
-                  <button type="submit" name="button" value="submit" class="update" id= {{this.id}}>update</button>
+                  <button type="submit" name="button" value="submit" class="update inputForm" id= {{this.id}}>update</button>
                 </form>
 </div>
             </div>
