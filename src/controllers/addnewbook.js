@@ -5,35 +5,35 @@ const fs = require('fs');
 
 const{getBooksData,selectCategories}= require('./../database/queries/GSG_Library');
 
-exports.get = (req, res) => {
-	getBooksData((err, booksData) => {
-		if (err) {
-			return res.send('error in getting data');
-		}
-		selectCategories((err, categories) => {
-			if (err) {
-				return res.send('error category data');
-			}
+// exports.get = (req, res) => {
+// 	getBooksData((err, booksData) => {
+// 		if (err) {
+// 			return res.send('error in getting data');
+// 		}
+// 		selectCategories((err, categories) => {
+// 			if (err) {
+// 				return res.send('error category data');
+// 			}
 
-			booksData.forEach((book) => {
-				book.category = [
-					{ id: book.cat_id, name: book.cat_name }
-				];
-				categories.forEach((cat) => {
-					if (book.category[0].id !== cat.id) {
-						book.category.push(cat);
-					}
-				});
-			});
+// 			booksData.forEach((book) => {
+// 				book.category = [
+// 					{ id: book.cat_id, name: book.cat_name }
+// 				];
+// 				categories.forEach((cat) => {
+// 					if (book.category[0].id !== cat.id) {
+// 						book.category.push(cat);
+// 					}
+// 				});
+// 			});
 
-			res.render('addnewbook', {
-				style: 'addnewbook',
-				booksData, categories
-			});
-		});
+// 			res.render('addnewbook', {
+// 				style: 'addnewbook',
+// 				booksData, categories
+// 			});
+// 		});
 
-	});
-};
+// 	});
+// };
 
 exports.post = (req, res , next ) => {
 	if (!req.body.fileUrl) {
