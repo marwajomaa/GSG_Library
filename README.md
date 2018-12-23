@@ -1,2 +1,2 @@
 # GSG_Library
-website for organizing the library in GSG
+website for organizing the library in GSG.
